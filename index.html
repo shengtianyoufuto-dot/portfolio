@@ -9,16 +9,20 @@
 </head>
 <body>
   <header class="header wrap">
-    <a class="brand" href="#top">PORTFOLIO<span class="brand-dot">.</span></a>
+    <a class="brand" href="#top" aria-label="PORTFOLIO トップへ"><img class="brand-logo" src="images/logo.png" alt="PORTFOLIO" width="948" height="210"></a>
     <nav aria-label="メインナビゲーション"><a href="#works">WORKS</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav>
   </header>
   <main id="top">
-    <section class="hero wrap">
-      <span class="eyebrow">VIDEO EDITING & GRAPHIC DESIGN</span>
-      <h1>伝わる表現を<br><em>ひとつずつ。</em></h1>
-      <p>動画編集・SNSコンテンツ・グラフィックデザイン。<br>見る人の目線を大切に、想いが伝わるクリエイティブを制作しています。</p>
-      <a href="#works" class="pill">制作実績を見る <span aria-hidden="true">↗</span></a>
-      <div class="hero-number" aria-hidden="true">01 / CREATIVE PORTFOLIO</div>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy wrap">
+        <span class="eyebrow">VIDEO EDITING & GRAPHIC DESIGN</span>
+        <h1 id="heroTitle">見る人の目線で<br><em>ひと工夫。</em></h1>
+        <p>動画編集・SNSコンテンツ・グラフィックデザイン。<br>見る人の目線を大切に、想いが伝わるクリエイティブを制作しています。</p>
+        <a href="#works" class="pill">制作実績を見る <span aria-hidden="true">↗</span></a>
+      </div>
+      <!-- 作品サムネイルが斜めに流れるエリア（中身は script.js の works から自動で作ります） -->
+      <div class="hero-marquee" aria-hidden="true"></div>
+      <div class="hero-number wrap" aria-hidden="true">01 / CREATIVE PORTFOLIO</div>
     </section>
     <section class="works-section" id="works"><div class="wrap">
       <div class="section-heading"><div><span class="eyebrow">SELECTED PROJECTS</span><h2>Works<span class="brand-dot">.</span></h2></div><p>制作実績</p></div>

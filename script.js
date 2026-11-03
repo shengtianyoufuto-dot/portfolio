@@ -177,7 +177,11 @@ function catLabel(key){return (categories[key]&&categories[key].label)||String(k
 // 色やラベルは自動で割り振ります（指定すればそちらが優先されます）
 const themes=['v1','v2','v3','v4'];
 const counters={};
+// 画像パスの入力欄が空・「#」「＃」だけのときは「画像なし」として扱います
+function cleanSrc(v){v=String(v||'').trim();return /^[#＃]*$/.test(v)?'':v}
+Object.values(categories).forEach(c=>{if('cover' in c)c.cover=cleanSrc(c.cover)});
 works.forEach((w,i)=>{
+  w.thumbnail=cleanSrc(w.thumbnail);w.image=cleanSrc(w.image);
   counters[w.category]=(counters[w.category]||0)+1;
   if(!w.theme) w.theme=themes[Math.max(0,Object.keys(categories).indexOf(w.category)-1)%themes.length];
   if(!w.label) w.label=catLabel(w.category)+' WORK '+String(counters[w.category]).padStart(2,'0');
@@ -185,6 +189,72 @@ works.forEach((w,i)=>{
   if(w.youtube){w.embed=toEmbedUrl(w.youtube);const id=w.embed.split('/embed/')[1];if(id&&!w.thumbnail&&!w.image)w.thumb='https://i.ytimg.com/vi/'+id+'/hqdefault.jpg';}
   else if(w.tiktok){const m=String(w.tiktok).match(/\/video\/(\d+)/);if(m)w.embed='https://www.tiktok.com/player/v1/'+m[1];}
 });
+
+// TikTokのサムネイルを取得します（同じ作品は1回だけ問い合わせ、結果を使い回します）
+function tiktokThumb(w){
+  if(!w.tiktok)return Promise.resolve('');
+  if(!w._thumbReq)w._thumbReq=fetch('https://www.tiktok.com/oembed?url='+encodeURIComponent(w.tiktok)).then(r=>r.json()).then(d=>d.thumbnail_url||'').catch(()=>'');
+  return w._thumbReq;
+}
+
+// ============================================================
+// ③ ファーストビューの斜めに流れるサムネイル
+//   works の作品を数列に振り分け、右上から下へ流れるように表示します
+//   （サムネイルが無い作品は色付きのカードで表示）。
+//   heroSpeed … 流れる速さ（1秒あたりに進むピクセル数）。小さいほどゆっくりになります。
+//   heroColumns … 列の数
+// ============================================================
+const heroSpeed = 28;
+const heroColumns = 2;
+function buildHeroMarquee(){
+  const box=document.querySelector('.hero-marquee');
+  if(!box||!works.length)return;
+  const makeTile=w=>{
+    const tile=document.createElement('div');
+    tile.className='marquee-tile '+w.theme+(w.tiktok?' is-vertical':'');
+    const word=document.createElement('span');word.className='work-placeholder';word.textContent=w.title||w.label;tile.append(word);
+    return tile;
+  };
+  const setImg=(tile,src)=>{
+    if(!src)return;
+    const img=document.createElement('img');img.alt='';img.decoding='async';img.src=src;
+    img.onload=()=>{const word=tile.querySelector('.work-placeholder');if(word)word.remove()};
+    img.onerror=()=>img.remove();
+    tile.prepend(img);
+  };
+  const stage=document.createElement('div');stage.className='marquee-stage';
+  box.replaceChildren(stage);
+  const pairs=[];
+  for(let c=0;c<heroColumns;c++){
+    // 列ごとに作品をずらして並べ、隣の列と同じ作品が並ばないようにします
+    const list=works.filter((w,i)=>i%heroColumns===c);
+    const items=list.length?list:works;
+    const col=document.createElement('div');col.className='marquee-col';
+    const track=document.createElement('div');track.className='marquee-track';
+    const group=document.createElement('div');group.className='marquee-group';
+    track.append(group);col.append(track);stage.append(col);
+    // 1グループが表示範囲より長くなるまで作品を繰り返します
+    const tiles=[];
+    for(let n=0;n<30&&(n===0||group.getBoundingClientRect().height<stage.offsetHeight);n++){
+      items.forEach(w=>{const t=makeTile(w);t._work=w;tiles.push(t);group.append(t)});
+    }
+    // 同じグループをもう1つ並べ、半分進んだところで最初に戻すと継ぎ目なくループします
+    const clone=group.cloneNode(true);track.append(clone);
+    const clones=[...clone.children];
+    tiles.forEach((t,i)=>pairs.push([t,clones[i]]));
+    // 速さが一定になるよう、グループの長さから1周の時間を決めます
+    track.style.setProperty('--marquee-duration',(group.getBoundingClientRect().height/heroSpeed).toFixed(2)+'s');
+  }
+  pairs.forEach(([t,c])=>{
+    const w=t._work;
+    const apply=src=>{setImg(t,src);setImg(c,src)};
+    if(w.thumb)apply(w.thumb);else tiktokThumb(w).then(apply);
+  });
+}
+buildHeroMarquee();
+// 画面幅が大きく変わったとき（PCでウィンドウを広げた等）だけ作り直します
+let heroWidth=window.innerWidth,heroTimer;
+window.addEventListener('resize',()=>{clearTimeout(heroTimer);heroTimer=setTimeout(()=>{if(Math.abs(window.innerWidth-heroWidth)>40){heroWidth=window.innerWidth;buildHeroMarquee()}},250)});
 
 // ② 公開前に、ご自身の連絡先メールアドレスを入力してください。
 const contactEmail = '';
@@ -215,7 +285,7 @@ function render(filter='all'){
       else {
         visual.append(word);
         // TikTokはサムネイルを取得できたら差し替えます（取得できなければ文字のまま）
-        if(w.tiktok){fetch('https://www.tiktok.com/oembed?url='+encodeURIComponent(w.tiktok)).then(r=>r.json()).then(d=>{if(d.thumbnail_url){w.thumb=d.thumbnail_url;word.remove();addImg(d.thumbnail_url)}}).catch(()=>{})}
+        if(w.tiktok){tiktokThumb(w).then(url=>{if(url&&word.isConnected){word.remove();addImg(url)}})}
       }
       const more=document.createElement('span');more.className='work-more';more.textContent=catLabel(w.category)+' をすべて見る →';visual.append(more);
     } else {

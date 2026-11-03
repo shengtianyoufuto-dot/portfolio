@@ -6,6 +6,8 @@
 - `script.js`：作品一覧 `works` を編集。`contactEmail` に自分のメールアドレスを指定。
 - `style.css`：色やデザインを変更。
 - `images/`：作品のサムネイル画像を入れる（例：`images/banner01.jpg`）。`script.js` の `image` にそのパスを指定。
+- ファーストビューで斜めに流れるサムネイルは `works` から自動で作られ、2列に振り分けて右上から下へ流れます（列数は `heroColumns`）。`thumbnail` / `image` を指定した作品はその画像、YouTubeは自動サムネイル、TikTokは取得できた場合にサムネイルを表示し、画像がない作品は色付きカードになります。速さは `script.js` の `heroSpeed` で調整できます。
+- 画像パスは `images/...` のように先頭に `/` を付けずに書くと、GitHub Pages の `/portfolio/` 配下でも表示されます。
 - `url` にYouTube等の作品URLを指定するとサムネイルから開けます。未指定の場合はリンクなし。
 - 作品データは公開用のサンプルなので、公開前に差し替えること。
 - 業務制作物は必ず掲載許可を確認すること。
