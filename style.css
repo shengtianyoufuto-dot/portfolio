@@ -54,3 +54,16 @@
 @media(min-width:701px) and (max-height:820px){.hero h1{font-size:clamp(40px,min(5.4vw,8vh),76px)}.hero .pill{margin-top:18px}.hero-number{bottom:18px}}
 @media(max-width:700px){.hero{justify-content:flex-start}.hero-marquee{--col-w:44vw;--tile-gap:22px;position:relative;inset:auto;flex:1 1 auto;min-height:200px;margin-bottom:-22px}.marquee-stage{left:4%;height:340%}.marquee-tile{border-radius:4px}.hero-number{display:none}.hero{padding-bottom:22px;gap:28px}}
 @media(prefers-reduced-motion:reduce){.marquee-track{animation:none;transform:translate3d(0,-25%,0)}}
+
+/* ===== スマホ版ファーストビュー：画像を右側で背景として流し、コピーを四角で囲んで重ねる ===== */
+@media(max-width:700px){
+  .hero{justify-content:center;gap:0;padding:calc(74px + 24px) 0 48px}
+  .hero-marquee{--col-w:44vw;--tile-gap:14px;position:absolute;inset:0;margin:0;min-height:0;flex:none;z-index:1;-webkit-mask-image:linear-gradient(to bottom,transparent 70px,#000 140px,#000 90%,transparent);mask-image:linear-gradient(to bottom,transparent 70px,#000 140px,#000 90%,transparent)}
+  .marquee-stage{left:40%;height:180%}
+  .hero-copy{width:auto;margin:0 18px;padding:30px 22px 32px;background:rgba(255,255,255,.74);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.9);border-radius:6px;box-shadow:0 12px 34px rgba(32,35,34,.1)}
+  .hero-copy h1{margin-top:12px}
+}
+@media(max-width:360px){
+  .hero-copy{margin:0 12px;padding:26px 18px 28px}
+  .hero-copy h1{font-size:33px}
+}
