@@ -18,7 +18,7 @@
 .marquee-tile .work-placeholder{font-size:clamp(12px,1.1vw,15px);letter-spacing:.12em;text-align:center;line-height:1.5;padding:0 12px}
 /* メインビジュアルの背景（ヘッダーも背景の上に重ねます） */
 .header{position:absolute;top:0;left:0;right:0;z-index:10}
-.hero{min-height:100vh;min-height:100svh;padding-top:calc(96px + clamp(24px,4vh,56px));background:#f1f1ef url("images/hero-bg.jpg") 30% center/cover no-repeat}
+.hero{min-height:100vh;min-height:100svh;padding-top:calc(96px + clamp(24px,4vh,56px));background:#efebe0 url("images/hero-bg.jpg?v=3") 30% center/cover no-repeat}
 .hero-marquee{-webkit-mask-image:linear-gradient(to bottom,transparent 60px,#000 190px,#000 91%,transparent);mask-image:linear-gradient(to bottom,transparent 60px,#000 190px,#000 91%,transparent)}
 @media(max-width:700px){.hero{min-height:100vh;min-height:100svh;padding-top:calc(74px + 28px);background-position:62% center}.hero-marquee{-webkit-mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 90%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 90%,transparent)}}
 /* ヘッダー：白い角丸の枠に収めて、背景の上に浮かせます */
@@ -47,6 +47,23 @@
 .work-meta p{display:none}
 .work-grid.is-vertical .work-meta h3{font-size:16px}
 @media(max-width:700px){.work-visual{border-radius:18px}.work-grid.is-vertical .work-visual{border-radius:14px}.work-meta h3{font-size:18px}.work-grid.is-vertical .work-meta h3{font-size:14px}.work-more{left:16px;bottom:16px}}
+/* ファーストビューの動画タイル（縦型 9:16 をそのまま表示） */
+.marquee-tile.is-video{aspect-ratio:9/16;background:#1c1f1e}
+.marquee-tile video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+/* 横型の動画カード（YouTube）は16:9で表示し、サムネイルや動画の端が切れないようにします */
+.work-visual.has-embed:not(.is-vertical){aspect-ratio:16/9}
+/* 横型と縦型が混ざるカテゴリー：横型は2マス、縦型（9:16）は1マス */
+.work-grid.is-mixed{grid-template-columns:repeat(4,minmax(0,1fr))}
+.work-grid.is-mixed .work-card{grid-column:span 2}
+.work-grid.is-mixed .work-card.is-tall{grid-column:span 1}
+.work-grid.is-mixed .is-tall .work-visual{aspect-ratio:9/16;border-radius:18px}
+.work-grid.is-mixed .is-tall .work-visual.is-vertical iframe{left:0;width:100%;transform:none}
+.work-grid.is-mixed .is-tall .work-meta h3{font-size:16px}
+@media(max-width:700px){.work-grid.is-mixed{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 12px}.work-grid.is-mixed .is-tall .work-visual{border-radius:14px}.work-grid.is-mixed .is-tall .work-meta h3{font-size:14px}.work-grid.is-mixed .is-tall .work-meta{flex-direction:column;align-items:flex-start;gap:2px;padding-top:12px}}
+/* サムネイルの無い動画カード（押すとプレーヤーを読み込みます） */
+.work-visual.has-cover::after{display:none}
+.work-cover.no-thumb{background:transparent}
+.work-cover .work-placeholder{position:absolute;left:0;right:0;top:16%;padding:0 16px;font-size:15px;line-height:1.6;letter-spacing:.08em;text-align:center}
 /* 左の列は下から上へ（逆再生）、右の列は上から下へ流れます */
 .marquee-col:nth-child(odd) .marquee-track{animation-direction:reverse}
 @keyframes hero-fall{from{transform:translate3d(0,-50%,0)}to{transform:translate3d(0,0,0)}}

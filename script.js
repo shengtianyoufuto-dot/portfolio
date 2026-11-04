@@ -41,108 +41,112 @@ const works = [
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7696817418936601876',
-    thumbnail: '＃',   // 例: 'images/sns/sns01.jpg'
+    thumbnail: 'images/sns/sns01.jpg',
   },
   {
     title: 'コーポレート部 部署紹介動画',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7696816154635062548',
-    thumbnail: '',   // 例: 'images/sns/sns02.jpg'
+    thumbnail: 'images/sns/sns02.jpg',
   },
   {
     title: 'マンスリー部 部署紹介動画',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7696421522574937364',
-    thumbnail: '',   // 例: 'images/sns/sns03.jpg'
+    thumbnail: 'images/sns/sns03.jpg',
   },
   {
     title: 'マーケティング部 部署紹介動画',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7696074689931660564',
-    thumbnail: '',   // 例: 'images/sns/sns04.jpg'
+    thumbnail: 'images/sns/sns04.jpg',
   },
   {
     title: 'SNS動画',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7690897684890258708',
-    thumbnail: '',   // 例: 'images/sns/sns05.jpg'
+    thumbnail: 'images/sns/sns05.jpg',
   },
   {
     title: 'SNS動画',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7671206622827449620',
-    thumbnail: '',   // 例: 'images/sns/sns06.jpg'
+    thumbnail: 'images/sns/sns06.jpg',
   },
   {
     title: 'SNS動画',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7676434770192223509',
-    thumbnail: '',   // 例: 'images/sns/sns07.jpg'
+    thumbnail: 'images/sns/sns07.jpg',
   },
   {
     title: 'SNS動画',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7639642814724427029',
-    thumbnail: '',   // 例: 'images/sns/sns08.jpg'
+    thumbnail: 'images/sns/sns08.jpg',
   },
   {
     title: 'SNS動画',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7637432651980344596',
-    thumbnail: '',   // 例: 'images/sns/sns09.jpg'
+    thumbnail: 'images/sns/sns09.jpg',
   },
   {
     title: 'SNS動画',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7624435764977208593',
-    thumbnail: '',   // 例: 'images/sns/sns10.jpg'
+    thumbnail: 'images/sns/sns10.jpg',
   },
   {
     title: 'SNS動画',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7667509404400373012',
-    thumbnail: '',   // 例: 'images/sns/sns11.jpg'
+    thumbnail: 'images/sns/sns11.jpg',
   },
   {
     title: 'SNS動画',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7693482293389724949',
-    thumbnail: '',   // 例: 'images/sns/sns12.jpg'
+    thumbnail: 'images/sns/sns12.jpg',
   },
   {
     title: 'ルームツアー動画',
     category: 'roomtour',
     description: '撮影・編集・テロップ制作',
     youtube: 'https://www.youtube.com/embed/PHBCDgUPTmE',
+    thumbnail: 'images/roomtour/roomtour01.jpg',
   },
   {
     title: 'ルームツアー動画',
     category: 'roomtour',
     description: '撮影・編集・テロップ制作',
     youtube: 'https://www.youtube.com/embed/OFkphFgNOkE',
+    thumbnail: 'images/roomtour/roomtour02.jpg',
   },
   {
     title: 'ルームツアー動画',
     category: 'roomtour',
     description: '撮影・編集・テロップ制作',
     tiktok: 'https://www.tiktok.com/@bratto_group/video/7689401925996973313',
+    thumbnail: 'images/roomtour/roomtour03.jpg',
   },
   {
     title: 'ルームツアー動画',
     category: 'roomtour',
     description: '撮影・編集・テロップ制作',
     tiktok: 'https://www.tiktok.com/@bratto_group/video/7686796512428444949',
+    thumbnail: 'images/roomtour/roomtour04.jpg',
   },
   {
     title: 'キャンペーンバナー',
@@ -206,10 +210,31 @@ function tiktokThumb(w){
 // ============================================================
 const heroSpeed = 28;
 const heroColumns = 2;
+// ファーストビューで流す動画（videos フォルダに入れて、ここに並べます）
+//   src … 動画ファイル（音声なし・軽量化したmp4がおすすめ）
+//   poster … 読み込み前や「動きを減らす」設定のときに表示する静止画
+//   1本目・3本目…は左の列、2本目・4本目…は右の列に並びます。
+//   空にすると、これまでどおり works のサムネイルが流れます。
+const heroVideos = [
+  { src: 'videos/hero-01.mp4?v=2', poster: 'videos/hero-01.jpg?v=2' },
+  { src: 'videos/hero-02.mp4', poster: 'videos/hero-02.jpg' },
+  { src: 'videos/hero-03.mp4', poster: 'videos/hero-03.jpg' },
+  { src: 'videos/hero-04.mp4', poster: 'videos/hero-04.jpg' },
+];
+let heroVideoObserver;
 function buildHeroMarquee(){
   const box=document.querySelector('.hero-marquee');
   if(!box||!works.length)return;
   const makeTile=w=>{
+    if(w._video){
+      // 動画のタイル（音声なし・ループ再生。画面に見えているものだけ再生します）
+      const tile=document.createElement('div');tile.className='marquee-tile is-video';
+      const v=document.createElement('video');
+      v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;
+      ['muted','loop','playsinline','disablepictureinpicture'].forEach(k=>v.setAttribute(k,''));
+      v.preload='none';if(w.poster)v.poster=w.poster;v.src=w.src;
+      tile.append(v);return tile;
+    }
     const tile=document.createElement('div');
     tile.className='marquee-tile '+w.theme+(w.tiktok?' is-vertical':'');
     const word=document.createElement('span');word.className='work-placeholder';word.textContent=w.title||w.label;tile.append(word);
@@ -225,10 +250,11 @@ function buildHeroMarquee(){
   const stage=document.createElement('div');stage.className='marquee-stage';
   box.replaceChildren(stage);
   const pairs=[];
+  const source=heroVideos.length?heroVideos.map(v=>Object.assign({_video:true},v)):works;
   for(let c=0;c<heroColumns;c++){
     // 列ごとに作品をずらして並べ、隣の列と同じ作品が並ばないようにします
-    const list=works.filter((w,i)=>i%heroColumns===c);
-    const items=list.length?list:works;
+    const list=source.filter((w,i)=>i%heroColumns===c);
+    const items=list.length?list:source;
     const col=document.createElement('div');col.className='marquee-col';
     const track=document.createElement('div');track.className='marquee-track';
     const group=document.createElement('div');group.className='marquee-group';
@@ -245,8 +271,22 @@ function buildHeroMarquee(){
     // 速さが一定になるよう、グループの長さから1周の時間を決めます
     track.style.setProperty('--marquee-duration',(group.getBoundingClientRect().height/heroSpeed).toFixed(2)+'s');
   }
+  // 動画は画面に見えている間だけ再生し、見えなくなったら一時停止します（「動きを減らす」設定では静止画のまま）
+  if(heroVideoObserver)heroVideoObserver.disconnect();
+  const videos=[...box.querySelectorAll('video')];
+  videos.forEach(v=>{v.muted=true});
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(videos.length&&!reduce&&'IntersectionObserver' in window){
+    heroVideoObserver=new IntersectionObserver(entries=>entries.forEach(e=>{
+      const v=e.target;
+      if(e.isIntersecting){if(v.preload!=='auto')v.preload='auto';const p=v.play();if(p)p.catch(()=>{})}
+      else v.pause();
+    }),{rootMargin:'120px 0px'});
+    videos.forEach(v=>heroVideoObserver.observe(v));
+  }
   pairs.forEach(([t,c])=>{
     const w=t._work;
+    if(!w||w._video)return;
     const apply=src=>{setImg(t,src);setImg(c,src)};
     if(w.thumb)apply(w.thumb);else tiktokThumb(w).then(apply);
   });
@@ -268,9 +308,13 @@ function render(filter='all'){
   const isAll=filter==='all';
   const list=isAll?pickForAll():works.filter(w=>w.category===filter);
   // 縦型動画（TikTok）だけのカテゴリーは、9:16のカードで横に並べます
-  grid.classList.toggle('is-vertical',!isAll&&list.length>0&&list.every(w=>w.tiktok));
+  const allVertical=!isAll&&list.length>0&&list.every(w=>w.tiktok);
+  grid.classList.toggle('is-vertical',allVertical);
+  // 横型と縦型（TikTok）が混ざるカテゴリーは、縦型を9:16の細いカードにして並べます
+  const mixed=!isAll&&!allVertical&&list.some(w=>w.tiktok);
+  grid.classList.toggle('is-mixed',mixed);
   list.forEach(w=>{
-    const card=document.createElement('article');card.className='work-card';
+    const card=document.createElement('article');card.className='work-card'+(mixed?(w.tiktok?' is-tall':' is-wide'):'');
     let visual;
     if(isAll){
       // ALL：サムネイルを表示し、クリックでそのカテゴリーへ移動
@@ -291,16 +335,23 @@ function render(filter='all'){
     } else {
       visual=document.createElement(w.url&&!w.embed?'a':'div');visual.className='work-visual '+w.theme;
       if(w.url&&!w.embed){visual.href=w.url;visual.target='_blank';visual.rel='noopener noreferrer';visual.setAttribute('aria-label',w.title+' を開く');}
-      const makeFrame=autoplay=>{const frame=document.createElement('iframe');frame.src=w.embed+(autoplay?(w.embed.includes('?')?'&':'?')+'autoplay=1':'');frame.title=w.title;frame.loading='lazy';frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';frame.referrerPolicy='strict-origin-when-cross-origin';frame.allowFullscreen=true;return frame};
-      if(w.embed&&w.thumbnail){
-        // サムネイルを表示し、クリックで動画に切り替えます
-        visual.classList.add('has-embed','has-cover');if(w.tiktok)visual.classList.add('is-vertical');
-        const btn=document.createElement('button');btn.type='button';btn.className='work-cover';btn.setAttribute('aria-label',w.title+' を再生');
-        const img=document.createElement('img');img.src=w.thumbnail;img.alt='';img.loading='lazy';img.onerror=()=>{btn.replaceWith(makeFrame(false))};
+      // TikTokのプレーヤーは autoplay=1 を付けると再生できなくなるため、YouTubeのときだけ付けます
+      // （TikTokはサムネイルを押したあと、プレーヤーの準備ができた時点で再生の合図を送ります）
+      const makeFrame=autoplay=>{const frame=document.createElement('iframe');const auto=autoplay&&!w.tiktok;frame.src=w.embed+(auto?(w.embed.includes('?')?'&':'?')+'autoplay=1':'');if(autoplay&&w.tiktok)frame.dataset.tiktokAutoplay='1';frame.title=w.title;frame.loading=autoplay?'eager':'lazy';frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';frame.referrerPolicy='strict-origin-when-cross-origin';frame.allowFullscreen=true;return frame};
+      if(w.embed&&(w.thumbnail||w.tiktok)){
+        // サムネイル（TikTokでサムネイルが無いときは作品名のカード）を表示し、押したときだけ動画のプレーヤーを読み込みます
+        // ※TikTokのプレーヤーを一度にたくさん読み込むと表示されなくなることがあるため、1本ずつ読み込みます
+        visual.classList.add('has-cover');if(w.tiktok)visual.classList.add('is-vertical');
+        if(w.thumbnail)visual.classList.add('has-embed');
+        const btn=document.createElement('button');btn.type='button';btn.className='work-cover'+(w.thumbnail?'':' no-thumb');btn.setAttribute('aria-label',w.title+' を再生');
+        const open=autoplay=>{visual.classList.add('has-embed');btn.replaceWith(makeFrame(autoplay))};
+        if(w.thumbnail){const img=document.createElement('img');img.src=w.thumbnail;img.alt='';img.loading='lazy';img.onerror=()=>{img.remove();btn.classList.add('no-thumb');visual.classList.remove('has-embed');btn.prepend(word)};btn.append(img)}
+        const word=document.createElement('span');word.className='work-placeholder';word.textContent=w.title||w.label;
+        if(!w.thumbnail)btn.append(word);
         const play=document.createElement('span');play.className='work-play';play.setAttribute('aria-hidden','true');
-        btn.append(img,play);btn.addEventListener('click',()=>{btn.replaceWith(makeFrame(true))});visual.append(btn);
+        btn.append(play);btn.addEventListener('click',()=>open(true));visual.append(btn);
       }
-      else if(w.embed){visual.classList.add('has-embed');if(w.tiktok)visual.classList.add('is-vertical');visual.append(makeFrame(false))}
+      else if(w.embed){visual.classList.add('has-embed');visual.append(makeFrame(false))}
       else if(w.image){const img=document.createElement('img');img.src=w.image;img.alt=w.title;img.loading='lazy';visual.append(img)}
       else {const word=document.createElement('span');word.className='work-placeholder';word.textContent=w.label;visual.append(word)}
     }
@@ -309,6 +360,16 @@ function render(filter='all'){
     const tag=document.createElement('span');tag.className='work-tag';tag.textContent=catLabel(w.category);meta.append(left,tag);card.append(visual,meta);grid.append(card);
   });
 }
+// TikTokプレーヤーの準備ができたら、サムネイルから開いた動画だけ再生します（ブラウザの設定で止められた場合は再生ボタンが表示されます）
+window.addEventListener('message',e=>{
+  let host='';try{host=new URL(e.origin).hostname}catch(err){return}
+  if(!/(^|\.)tiktok\.com$/.test(host))return;
+  let d=e.data;if(typeof d==='string'){try{d=JSON.parse(d)}catch(err){return}}
+  if(!d||d.type!=='onPlayerReady')return;
+  document.querySelectorAll('iframe[data-tiktok-autoplay]').forEach(f=>{
+    if(f.contentWindow===e.source){f.removeAttribute('data-tiktok-autoplay');f.contentWindow.postMessage({type:'play','x-tiktok-player':true},'*')}
+  });
+});
 // 絞り込みボタンと説明文を作ります
 const filterBox=document.getElementById('filters');
 const filterText=document.getElementById('filterText');
