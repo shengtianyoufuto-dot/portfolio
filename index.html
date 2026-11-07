@@ -5,36 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="動画制作・デザインのポートフォリオ">
   <title>Portfolio | Creative Works</title>
-  <link rel="stylesheet" href="style.css?v=20261104">
+  <link rel="stylesheet" href="style.css?v=20261107zu">
 </head>
 <body>
   <header class="header wrap">
     <a class="brand" href="#top" aria-label="PORTFOLIO トップへ"><img class="brand-logo" src="images/logo.png" alt="PORTFOLIO" width="948" height="210"></a>
-    <nav aria-label="メインナビゲーション"><a href="#works">WORKS</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav>
+    <nav aria-label="メインナビゲーション"><a href="#works">制作実績</a><a href="#about">プロフィール</a></nav>
   </header>
   <main id="top">
     <section class="hero" aria-labelledby="heroTitle">
       <div class="hero-copy wrap">
-        <span class="eyebrow">VIDEO EDITING & GRAPHIC DESIGN</span>
-        <h1 id="heroTitle">見る人の目線で<br><em>ひと工夫。</em></h1>
-        <p>動画編集・SNSコンテンツ・グラフィックデザイン。<br>見る人の目線を大切に、想いが伝わるクリエイティブを制作しています。</p>
-        <a href="#works" class="pill">制作実績を見る <span aria-hidden="true">↗</span></a>
+        <span class="eyebrow">SNS VIDEO / GRAPHIC DESIGN</span>
+        <h1 id="heroTitle">見る人の目線で、<br><em><span class="mark">ひと工夫</span>。</em></h1>
+        <p class="hero-lead">SNS動画の企画・撮影・編集から、<br>バナー制作まで。</p>
+        <p class="hero-badge"><svg class="hero-badge-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1v22M1 12h22M4.2 4.2l15.6 15.6M19.8 4.2L4.2 19.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 6.5l1.4 4.1 4.1 1.4-4.1 1.4-1.4 4.1-1.4-4.1-4.1-1.4 4.1-1.4z" fill="currentColor"/></svg><span>Hinata’s Portfolio</span><svg class="hero-badge-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1v22M1 12h22M4.2 4.2l15.6 15.6M19.8 4.2L4.2 19.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 6.5l1.4 4.1 4.1 1.4-4.1 1.4-1.4 4.1-1.4-4.1-4.1-1.4 4.1-1.4z" fill="currentColor"/></svg></p>
       </div>
       <!-- 作品サムネイルが斜めに流れるエリア（中身は script.js の works から自動で作ります） -->
       <div class="hero-marquee" aria-hidden="true"></div>
+      <div class="hero-bigtext" aria-hidden="true">My Portfolio</div>
       <div class="hero-number wrap" aria-hidden="true">01 / CREATIVE PORTFOLIO</div>
     </section>
     <section class="works-section" id="works"><div class="wrap">
-      <div class="section-heading"><div><span class="eyebrow">SELECTED PROJECTS</span><h2>Works<span class="brand-dot">.</span></h2></div><p>制作実績</p></div>
+      <div class="section-heading"><div><span class="eyebrow">SELECTED PROJECTS</span><h2 class="ja-title">制作実績<span class="brand-dot">.</span></h2></div></div>
       <div class="filters" id="filters" role="group" aria-label="作品カテゴリ"></div>
       <p class="filter-text" id="filterText" aria-live="polite"></p>
       <div class="work-grid" id="workGrid"></div>
+      <div class="sns-links" id="snsLinks" hidden></div>
       <p class="work-note"></p>
     </div></section>
-    <section id="about" class="about-section wrap"><div><span class="eyebrow">WHO I AM</span><h2>About<span class="brand-dot">.</span></h2></div><div class="about-copy"><h3>企画から完成まで、<br>一貫して向き合う。</h3><p>SNS向けショート動画の企画・撮影・編集を中心に、バナーやサムネイルなどのデザイン制作にも取り組んでいます。伝えたい内容と、見る人の興味が重なる表現を目指しています。</p><p class="skills">Video Editing / SNS Content / Illustrator / Photoshop / Canva / CapCut</p></div></section>
-    <section id="contact" class="contact-section"><div class="wrap"><span class="eyebrow">GET IN TOUCH</span><h2>Contact<span class="brand-dot">.</span></h2><p>お仕事のご相談など、お気軽にご連絡ください。</p><a id="emailLink" class="pill dark" href="#contact">メールアドレスを設定してください ↗</a></div></section>
+    <section id="about" class="about-section wrap"><div><span class="eyebrow">WHO I AM</span><h2 class="ja-title">プロフィール<span class="brand-dot">.</span></h2></div><div class="about-copy"><h3>企画から完成まで、<br>一貫して向き合う。</h3><p>SNS向けショート動画の企画・撮影・編集を中心に、バナーやサムネイルなどのデザイン制作にも取り組んでいます。伝えたい内容と、見る人の興味が重なる表現を目指しています。</p><p class="skills">Video Editing / SNS Content / Illustrator / Photoshop / Canva / CapCut</p></div></section>
   </main>
   <footer class="wrap footer"><span>© <span id="year"></span> MY PORTFOLIO</span><a href="#top">BACK TO TOP ↑</a></footer>
-  <script src="script.js?v=20261104"></script>
+  <script src="script.js?v=20261107zu"></script>
 </body>
 </html>

@@ -7,14 +7,14 @@
 //   カテゴリーを増やすときは、ここに1行追加して、作品の category に同じ名前を書きます。
 // ============================================================
 const categories = {
-  all:      { label: 'ALL',       text: 'これまでに制作した作品の一覧です。' },
-  sns:      { label: 'SNS',       text: 'Instagram・TikTokなど、SNS向けのショート動画。企画から撮影・編集まで担当しています。',
+  all:      { label: 'すべて',       text: 'これまでに制作した作品の一覧です。' },
+  sns:      { label: 'SNSショート',       text: 'Instagram・TikTokなど、SNS向けのショート動画。企画から撮影・編集まで担当しています。',
               cover: '＃' },   // 例: 'images/category/sns.jpg'
-  roomtour: { label: 'ROOM TOUR', text: '物件の魅力が伝わるルームツアー動画。撮影・編集・テロップ制作を担当しています。',
+  roomtour: { label: 'ルームツアー', text: '物件の魅力が伝わるルームツアー動画。撮影・編集・テロップ制作を担当しています。',
               cover: '' },   // 例: 'images/category/roomtour.jpg'
-  design:   { label: 'DESIGN',    text: 'バナーやサムネイルなど、SNS・Web向けのグラフィックデザインです。',
+  design:   { label: 'デザイン',    text: 'バナーやサムネイルなど、SNS・Web向けのグラフィックデザインです。',
               cover: '' },   // 例: 'images/category/design.jpg'
-  other:    { label: 'OTHER',     text: 'その他の制作物です。',
+  other:    { label: 'その他',     text: 'その他の制作物です。',
               cover: '' },   // 例: 'images/category/other.jpg'
 };
 
@@ -33,6 +33,7 @@ const categories = {
 //                  → サムネイルが表示され、クリックすると動画が再生されます（空なら動画プレイヤーをそのまま表示）
 //   image       … 画像を表示したいとき。images フォルダに入れて 'images/ファイル名.jpg'
 //   url         … 画像カードをクリックしたときに開くページ（なければ空のまま）
+//   note        … 動画を開いたときに下に表示する説明文
 //   使わない項目は '' のまま、または行ごと消してOKです。
 // ============================================================
 const works = [
@@ -41,6 +42,7 @@ const works = [
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7696817418936601876',
+    note: 'IT部の部署紹介動画です。社員をアメコミのヒーロー風に登場させ、部署の雰囲気や仕事内容を楽しく伝えました。企画・撮影・編集を担当しています。',
     thumbnail: 'images/sns/sns01.jpg',
   },
   {
@@ -48,6 +50,7 @@ const works = [
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7696816154635062548',
+    note: 'コーポレート部の部署紹介動画です。明るいメンバーの人柄が伝わるよう、テンポのよいカットとテロップで仕上げました。企画・撮影・編集を担当しています。',
     thumbnail: 'images/sns/sns02.jpg',
   },
   {
@@ -55,6 +58,7 @@ const works = [
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7696421522574937364',
+    note: 'マンスリー部の部署紹介動画です。電話対応など実際の業務の様子を中心に、仕事の流れが分かる構成にしました。企画・撮影・編集を担当しています。',
     thumbnail: 'images/sns/sns03.jpg',
   },
   {
@@ -62,62 +66,71 @@ const works = [
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7696074689931660564',
+    note: 'マーケティング部の部署紹介動画です。メンバーの掛け合いを活かして、部署の雰囲気が伝わるように編集しました。企画・撮影・編集を担当しています。',
     thumbnail: 'images/sns/sns04.jpg',
   },
   {
-    title: 'SNS動画',
+    title: '大喜利大会 紹介動画',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7690897684890258708',
+    note: '9月の社内イベント「大喜利大会」の様子をまとめた動画です。お題と回答をテロップで見せ、会場の盛り上がりが伝わるようにしました。',
     thumbnail: 'images/sns/sns05.jpg',
   },
   {
-    title: 'SNS動画',
+    title: 'もしも重力がなくなったら？',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7671206622827449620',
+    note: '求人募集の動画です。「もしも重力がなくなったら？」という設定で、思わず見たくなる冒頭を意識して制作しました。',
     thumbnail: 'images/sns/sns06.jpg',
   },
   {
-    title: 'SNS動画',
+    title: 'そんなもの持ってくるな選手権',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7676434770192223509',
+    note: '社員企画「そんなもの持ってくるな選手権 Part2」の動画です。持ち寄った品へのリアクションを中心に、笑いどころが伝わるよう編集しました。',
     thumbnail: 'images/sns/sns07.jpg',
   },
   {
-    title: 'SNS動画',
+    title: '絶景のはずが、求人募集!?',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7639642814724427029',
+    note: '求人募集の動画です。オーロラの映像と組み合わせ、編集の幅を見せる演出にしました。',
     thumbnail: 'images/sns/sns08.jpg',
   },
   {
-    title: 'SNS動画',
+    title: 'ショートコント風 求人募集',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7637432651980344596',
+    note: '社員紹介シリーズの動画です。季節感のある演出で、社員の人柄が伝わるようにしました。',
     thumbnail: 'images/sns/sns09.jpg',
   },
   {
-    title: 'SNS動画',
+    title: '新入社員の1日紹介',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7624435764977208593',
+    note: '新入社員の1日を紹介する動画です。出社から退社までの流れを追い、入社後の働き方がイメージできる構成にしました。',
     thumbnail: 'images/sns/sns10.jpg',
   },
   {
-    title: 'SNS動画',
+    title: '七夕イベント 紹介動画',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7667509404400373012',
+    note: '七夕にあわせた社内企画の動画です。社員の願いごとを紹介し、会社の明るい雰囲気を伝えました。',
     thumbnail: 'images/sns/sns11.jpg',
   },
   {
-    title: 'SNS動画',
+    title: '社内お食事会 紹介動画',
     category: 'sns',
     description: '企画・撮影・編集',
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7693482293389724949',
+    note: '9月の社内イベント「お食事会」の様子をまとめた動画です。和やかな雰囲気が伝わるよう、会話の場面を中心に編集しました。',
     thumbnail: 'images/sns/sns12.jpg',
   },
   {
@@ -125,6 +138,7 @@ const works = [
     category: 'roomtour',
     description: '撮影・編集・テロップ制作',
     youtube: 'https://www.youtube.com/embed/PHBCDgUPTmE',
+    note: 'BraTToなんばパークス前のルームツアー動画です。部屋の広さや設備が分かるよう、入口から順に案内する構成で撮影・編集しました。',
     thumbnail: 'images/roomtour/roomtour01.jpg',
   },
   {
@@ -132,6 +146,7 @@ const works = [
     category: 'roomtour',
     description: '撮影・編集・テロップ制作',
     youtube: 'https://www.youtube.com/embed/OFkphFgNOkE',
+    note: 'BraTTo綾瀬ステーションフロントのルームツアー動画です。駅からの近さと室内の設備を、テロップで分かりやすく紹介しました。',
     thumbnail: 'images/roomtour/roomtour02.jpg',
   },
   {
@@ -139,6 +154,7 @@ const works = [
     category: 'roomtour',
     description: '撮影・編集・テロップ制作',
     tiktok: 'https://www.tiktok.com/@bratto_group/video/7689401925996973313',
+    note: 'BraTTo長堀タワーのルームツアー動画です。縦型動画で、スマホでも部屋の雰囲気が伝わるように撮影・編集しました。',
     thumbnail: 'images/roomtour/roomtour03.jpg',
   },
   {
@@ -146,21 +162,90 @@ const works = [
     category: 'roomtour',
     description: '撮影・編集・テロップ制作',
     tiktok: 'https://www.tiktok.com/@bratto_group/video/7686796512428444949',
+    note: 'BraTTo月島カーサのルームツアー動画です。家具家電の配置や収納など、暮らしのイメージが湧くポイントを紹介しました。',
     thumbnail: 'images/roomtour/roomtour04.jpg',
+  },
+  {
+    title: 'ルームツアー動画',
+    category: 'roomtour',
+    description: '撮影・編集・テロップ制作',
+    tiktok: 'https://www.tiktok.com/@bratto_group/video/7701656082673847573',
+    note: 'BraTTo今池ルミナスのルームツアー動画です。室内の明るさや設備を中心に、テンポよく紹介しました。',
+    thumbnail: 'images/roomtour/roomtour05.jpg',
+  },
+  {
+    title: 'ルームツアー動画',
+    category: 'roomtour',
+    description: '撮影・編集・テロップ制作',
+    tiktok: 'https://www.tiktok.com/@bratto_group/video/7694605868926618901',
+    note: 'BraTTo赤羽ジェネのルームツアー動画です。部屋の特徴が一目で分かるよう、テロップと構成を工夫しました。',
+    thumbnail: 'images/roomtour/roomtour06.jpg',
   },
   {
     title: 'キャンペーンバナー',
     category: 'design',
     description: 'グラフィックデザイン',
-    image: '',
+    image: 'images/design/campaign-thumb.jpg',
     url: '',
+    // gallery … カードを押すと開く一覧。group ごとに見出しを付けて並べます（src は images/design フォルダの画像）
+    //           note … そのキャンペーンの説明文（各キャンペーンの1枚目に書きます）
+    gallery: [
+      { group: '5月 新緑キャンペーン',     src: 'images/design/campaign-may-wide.jpg', size: '1140×270' , note: '新緑の山と湖の風景で、5月らしい爽やかさを表現しました。「80%OFF」は赤の大きな数字で一番目立つようにし、「空き室残りわずか！」のリボンで急ぎたくなる気持ちを後押ししています。' },
+      { group: '5月 新緑キャンペーン',     src: 'images/design/campaign-may.jpg',      size: '740×370' },
+      { group: '6月 入居応援キャンペーン', src: 'images/design/campaign-jun-wide.jpg', size: '1140×270' , note: '紫陽花・雨粒・虹のモチーフで梅雨の時期らしさを出しつつ、明るい青紫でじめじめした印象にならないようにしました。「梅雨でも安心！」の吹き出しで、家具家電付きの手軽さを伝えています。' },
+      { group: '6月 入居応援キャンペーン', src: 'images/design/campaign-jun.jpg',      size: '740×370' },
+      { group: '7月 夏の快適ステイ応援キャンペーン', src: 'images/design/campaign-jul-wide.jpg', size: '1140×270' , note: 'プールの水面と浮き輪の「80%」で、ひと目で夏とわかるデザインにしました。エアコンのイラストと「すぐ快適！」の言葉で、暑い時期の引っ越しの不安をやわらげています。' },
+      { group: '7月 夏の快適ステイ応援キャンペーン', src: 'images/design/campaign-jul.jpg',      size: '740×370' },
+      { group: '8月 花火のようにドーン！とお得な応援キャンペーン', src: 'images/design/campaign-aug-wide.jpg', size: '1140×270' , note: '夜空の花火と提灯で夏祭りの雰囲気を出し、「ドーン！」の文字に勢いを持たせました。暗い背景に黄色と赤の文字を重ね、夜でもお得さが目に飛び込むようにしています。' },
+      { group: '8月 花火のようにドーン！とお得な応援キャンペーン', src: 'images/design/campaign-aug.jpg',      size: '740×370' },
+      { group: '9月 秋のお月見キャンペーン', src: 'images/design/campaign-sep-wide.jpg', size: '1140×270' , note: '大きな満月を「80%OFF」の背景に使い、月見の景色と割引の数字をひとつにまとめました。うさぎと餅つきのキャラクターで、親しみやすさを加えています。' },
+      { group: '9月 秋のお月見キャンペーン', src: 'images/design/campaign-sep.jpg',      size: '740×370' },
+      { group: '10月 秋の大感謝キャンペーン', src: 'images/design/campaign-oct-wide.jpg', size: '1140×270' , note: '紅葉と夕焼けで秋の深まりを表現し、筆文字風のタイトルで「感謝」の気持ちを伝わりやすくしました。紅葉の葉の中に「早割」「短期割」を入れ、割引の種類も一目でわかるようにしています。' },
+      { group: '10月 秋の大感謝キャンペーン', src: 'images/design/campaign-oct.jpg',      size: '740×370' },
+      { group: '11月 勤労感謝キャンペーン', src: 'images/design/campaign-nov-wide.jpg', size: '1140×270' , note: '働く人のイラストと赤白の放射線で、明るく元気な印象にしました。「頑張るあなたへ」「家具家電付き」の吹き出しで、新生活を始める社会人に向けたメッセージにしています。' },
+      { group: '11月 勤労感謝キャンペーン', src: 'images/design/campaign-nov.jpg',      size: '740×370' },
+    ],
+  },
+  {
+    title: 'SNS投稿',
+    category: 'design',
+    description: 'SNS投稿画像のデザイン',
+    image: 'images/design/snspost-thumb.jpg',
+    url: '',
+    galleryLayout: 'post',   // 縦長の投稿画像を3列で並べます
+    // gallery … キャンペーンバナーと同じ書き方で、押すと開く一覧に並べる画像を書きます
+    gallery: [
+      { group: '新入社員紹介（コーポレート部）', src: 'images/design/snspost-intro01-1.jpg', note: 'Instagram向けの社員紹介シリーズです。1枚目は会社のオレンジを使った雑誌の表紙風のデザインで、紫陽花の写真と手書き風の文字で人柄が伝わるようにしました。2・3枚目はノート風のデザインにして、プロフィールやインタビューを親しみやすく読めるようにしています。' },
+      { group: '新入社員紹介（コーポレート部）', src: 'images/design/snspost-intro01-2.jpg' },
+      { group: '新入社員紹介（コーポレート部）', src: 'images/design/snspost-intro01-3.jpg' },
+      { group: '社内大喜利大会（福利厚生）', src: 'images/design/snspost-ogiri-1.jpg', note: '社内イベントを紹介するInstagram投稿です。1枚目は赤と黄色の放射線に社員の笑顔を大きく配置し、「大喜利」の文字を一番目立たせて、思わずスワイプしたくなる表紙にしました。2枚目以降はお題・回答・キャラクターのツッコミを毎回同じ配置にして、続けて読みやすいシリーズにしています。' },
+      { group: '社内大喜利大会（福利厚生）', src: 'images/design/snspost-ogiri-2.jpg' },
+      { group: '社内大喜利大会（福利厚生）', src: 'images/design/snspost-ogiri-3.jpg' },
+      { group: 'お盆休み 沖縄（福利厚生）', src: 'images/design/snspost-obon-1.jpg', note: '社員のお盆休みを紹介するInstagram投稿です。1枚目は沖縄の海や街の写真を重ね、南国の魚のイラストとオレンジの手書き風タイトルで、旅の楽しさがひと目で伝わる表紙にしました。2枚目以降は方眼ノートに写真を貼った旅日記風のデザインにして、1日ごとの出来事をコメントや矢印でたどれるようにしています。' },
+      { group: 'お盆休み 沖縄（福利厚生）', src: 'images/design/snspost-obon-2.jpg' },
+      { group: 'お盆休み 沖縄（福利厚生）', src: 'images/design/snspost-obon-3.jpg' },
+    ],
   },
   {
     title: 'その他の作品',
     category: 'other',
-    description: '作品の説明',
-    image: '',
+    description: 'LINEスタンプ・リッチメニュー・ぬいぐるみ制作',
+    image: 'images/other/other-thumb.jpg',
     url: '',
+    galleryLayout: 'feature',   // 1枚ずつ、画像と説明を横に並べて見せます
+    gallery: [
+      { group: 'LINEスタンプ', src: 'images/other/line-stamp-01.png', alt: 'LINEスタンプ「あっぱれ！」', note: '会社のキャラクターを使ったLINEスタンプを制作しました。「あっぱれ！」「助かりました」「おはようございます」など、仕事のやり取りでそのまま使える言葉を選び、キャラクターの表情やポーズ、背景の色で気持ちが伝わるようにしています。トーク画面で小さく表示されても読みやすいよう、文字は太く大きくしています。' },
+      { group: 'LINEスタンプ', src: 'images/other/line-stamp-02.png', alt: 'LINEスタンプ「てへ」' },
+      { group: 'LINEスタンプ', src: 'images/other/line-stamp-03.png', alt: 'LINEスタンプ「わかりました！」' },
+      { group: 'LINEスタンプ', src: 'images/other/line-stamp-04.png', alt: 'LINEスタンプ「今向かっています！」' },
+      { group: 'LINEスタンプ', src: 'images/other/line-stamp-05.png', alt: 'LINEスタンプ「充電切れそう…」' },
+      { group: 'LINEスタンプ', src: 'images/other/line-stamp-06.png', alt: 'LINEスタンプ「助かりました」' },
+      { group: 'LINEスタンプ', src: 'images/other/line-stamp-07.png', alt: 'LINEスタンプ「心の広さ2LDK以上だね！」' },
+      { group: 'LINEスタンプ', src: 'images/other/line-stamp-08.png', alt: 'LINEスタンプ「おはようございます」' },
+      { group: 'LINEスタンプ', src: 'images/other/line-stamp-09.png', alt: 'LINEスタンプ「すみませんでした」' },
+      { group: 'LINEリッチメニュー', src: 'images/other/richmenu-01.jpg', alt: '採用向けLINEのリッチメニュー', note: '採用向けLINE公式アカウントのリッチメニューを制作しました。上の大きな枠で採用サイトへ案内し、下の3つのボタンからInstagram・企業サイト・よくある質問へ進めるようにしています。会社のオレンジとキャラクターを大きく使い、トーク画面を開いたときにひと目で会社の雰囲気が伝わるようにしました。' },
+      { group: 'ぬいぐるみ制作', src: 'images/other/plush-01.jpg', alt: 'キャラクターのぬいぐるみ', note: '会社のキャラクターをぬいぐるみにしました。イラストの四角い頭や画面のような顔、アンテナや蝶ネクタイなどの特徴をそのまま再現できるよう、デザインを立体に起こしました。' },
+    ],
   },
 
   // ↓ 追加用のひな形（先頭の // を消して使ってください）
@@ -191,7 +276,7 @@ works.forEach((w,i)=>{
   if(!w.label) w.label=catLabel(w.category)+' WORK '+String(counters[w.category]).padStart(2,'0');
   w.embed='';w.thumb=w.thumbnail||w.image||'';
   if(w.youtube){w.embed=toEmbedUrl(w.youtube);const id=w.embed.split('/embed/')[1];if(id&&!w.thumbnail&&!w.image)w.thumb='https://i.ytimg.com/vi/'+id+'/hqdefault.jpg';}
-  else if(w.tiktok){const m=String(w.tiktok).match(/\/video\/(\d+)/);if(m)w.embed='https://www.tiktok.com/player/v1/'+m[1];}
+  else if(w.tiktok){const m=String(w.tiktok).match(/\/video\/(\d+)/);if(m)w.embed='https://www.tiktok.com/player/v1/'+m[1]+'?rel=0';} // rel=0：おすすめ動画を同じアカウントのものに限定
 });
 
 // TikTokのサムネイルを取得します（同じ作品は1回だけ問い合わせ、結果を使い回します）
@@ -303,8 +388,41 @@ const grid = document.getElementById('workGrid');
 function pickForAll(){
   return Object.keys(categories).filter(k=>k!=='all').map(k=>works.find(w=>w.category===k)).filter(Boolean);
 }
+// ============================================================
+// ④ SNSショートの下に出す、公式アカウントへのリンク
+//   url を空にすると、押せないカード（矢印なし）として表示します
+// ============================================================
+//   カテゴリーごとに、見出し（title）と並べるリンク（links）を書きます
+const tiktokLink    = { name: 'TikTok',    sub: '企業公式アカウント', icon: 'images/icons/tiktok.png',    url: 'https://www.tiktok.com/@bratto_recruit' };
+const instagramLink = { name: 'Instagram', sub: '企業公式アカウント', icon: 'images/icons/instagram.png', url: 'https://www.instagram.com/bratto_recruit/' };
+const snsLinkSets = {
+  sns:    { title: '掲載作品以外の動画はこちら', links: [tiktokLink, instagramLink] },
+  design: { title: '掲載作品以外の投稿はこちら', links: [instagramLink] },
+};
+const snsLinkBox=document.getElementById('snsLinks');
+function renderSnsLinks(filter){
+  if(!snsLinkBox)return;
+  const set=snsLinkSets[filter];
+  snsLinkBox.hidden=!set;
+  snsLinkBox.replaceChildren();
+  if(!set)return;
+  const title=document.createElement('p');title.className='sns-links-title';title.textContent=set.title;
+  const list=document.createElement('div');list.className='sns-links-grid'+(set.links.length===1?' is-single':'');
+  snsLinkBox.append(title,list);
+  set.links.forEach(l=>{
+    const card=document.createElement(l.url?'a':'div');card.className='sns-link'+(l.url?'':' is-disabled');
+    if(l.url){card.href=l.url;card.target='_blank';card.rel='noopener noreferrer';card.setAttribute('aria-label',l.name+'（'+l.sub+'）を開く')}
+    const img=document.createElement('img');img.className='sns-link-icon';img.src=l.icon;img.alt='';img.width=64;img.height=64;
+    const txt=document.createElement('span');txt.className='sns-link-text';
+    const n=document.createElement('strong');n.textContent=l.name;const sub=document.createElement('span');sub.textContent=l.sub;txt.append(n,sub);
+    card.append(img,txt);
+    if(l.url){const ar=document.createElement('span');ar.className='sns-link-arrow';ar.setAttribute('aria-hidden','true');ar.textContent='↗';card.append(ar)}
+    list.append(card);
+  });
+}
 function render(filter='all'){
   grid.replaceChildren();
+  renderSnsLinks(filter);
   const isAll=filter==='all';
   const list=isAll?pickForAll():works.filter(w=>w.category===filter);
   // 縦型動画（TikTok）だけのカテゴリーは、9:16のカードで横に並べます
@@ -331,7 +449,7 @@ function render(filter='all'){
         // TikTokはサムネイルを取得できたら差し替えます（取得できなければ文字のまま）
         if(w.tiktok){tiktokThumb(w).then(url=>{if(url&&word.isConnected){word.remove();addImg(url)}})}
       }
-      const more=document.createElement('span');more.className='work-more';more.textContent=catLabel(w.category)+' をすべて見る →';visual.append(more);
+      const more=document.createElement('span');more.className='work-more';more.textContent=catLabel(w.category)+'をすべて見る →';visual.append(more);
     } else {
       visual=document.createElement(w.url&&!w.embed?'a':'div');visual.className='work-visual '+w.theme;
       if(w.url&&!w.embed){visual.href=w.url;visual.target='_blank';visual.rel='noopener noreferrer';visual.setAttribute('aria-label',w.title+' を開く');}
@@ -344,20 +462,29 @@ function render(filter='all'){
         visual.classList.add('has-cover');if(w.tiktok)visual.classList.add('is-vertical');
         if(w.thumbnail)visual.classList.add('has-embed');
         const btn=document.createElement('button');btn.type='button';btn.className='work-cover'+(w.thumbnail?'':' no-thumb');btn.setAttribute('aria-label',w.title+' を再生');
-        const open=autoplay=>{visual.classList.add('has-embed');btn.replaceWith(makeFrame(autoplay))};
+        // 再生が終わったら（TikTok）、サムネイルと再生ボタンの表示に戻します。もう一度押すと最初から再生します
+        const open=autoplay=>{visual.classList.add('has-embed');const f=makeFrame(autoplay);if(w.tiktok)f._restore=()=>{if(f.isConnected){f.replaceWith(btn);if(!w.thumbnail)visual.classList.remove('has-embed')}};btn.replaceWith(f)};
         if(w.thumbnail){const img=document.createElement('img');img.src=w.thumbnail;img.alt='';img.loading='lazy';img.onerror=()=>{img.remove();btn.classList.add('no-thumb');visual.classList.remove('has-embed');btn.prepend(word)};btn.append(img)}
         const word=document.createElement('span');word.className='work-placeholder';word.textContent=w.title||w.label;
         if(!w.thumbnail)btn.append(word);
         const play=document.createElement('span');play.className='work-play';play.setAttribute('aria-hidden','true');
-        btn.append(play);btn.addEventListener('click',()=>open(true));visual.append(btn);
+        btn.append(play);btn.addEventListener('click',()=>openVideo(w,btn,makeFrame));visual.append(btn);
       }
       else if(w.embed){visual.classList.add('has-embed');visual.append(makeFrame(false))}
+      else if(w.gallery&&w.gallery.length){
+        // 押すとバナーの一覧（ギャラリー）を開くカード
+        visual.classList.add('has-gallery');
+        const btn=document.createElement('button');btn.type='button';btn.className='work-gallery-open';btn.setAttribute('aria-label',w.title+'の一覧を開く');
+        if(w.image){const img=document.createElement('img');img.src=w.image;img.alt='';img.loading='lazy';btn.append(img)}
+        const more=document.createElement('span');more.className='work-more';more.textContent=w.gallery.length+'点を見る →';btn.append(more);
+        btn.addEventListener('click',()=>openGallery(w,btn));visual.append(btn);
+      }
       else if(w.image){const img=document.createElement('img');img.src=w.image;img.alt=w.title;img.loading='lazy';visual.append(img)}
       else {const word=document.createElement('span');word.className='work-placeholder';word.textContent=w.label;visual.append(word)}
     }
     const meta=document.createElement('div');meta.className='work-meta';
     const left=document.createElement('div');const heading=document.createElement('h3');heading.textContent=w.title;const detail=document.createElement('p');detail.textContent=w.description;left.append(heading,detail);
-    const tag=document.createElement('span');tag.className='work-tag';tag.textContent=catLabel(w.category);meta.append(left,tag);card.append(visual,meta);grid.append(card);
+    meta.append(left);card.append(visual,meta);grid.append(card);   // 右側の小さなカテゴリー名は表示しません
   });
 }
 // TikTokプレーヤーの準備ができたら、サムネイルから開いた動画だけ再生します（ブラウザの設定で止められた場合は再生ボタンが表示されます）
@@ -365,11 +492,77 @@ window.addEventListener('message',e=>{
   let host='';try{host=new URL(e.origin).hostname}catch(err){return}
   if(!/(^|\.)tiktok\.com$/.test(host))return;
   let d=e.data;if(typeof d==='string'){try{d=JSON.parse(d)}catch(err){return}}
-  if(!d||d.type!=='onPlayerReady')return;
+  if(!d)return;
+  if(d.type==='onStateChange'&&Number(d.value)===0){
+    document.querySelectorAll('iframe').forEach(f=>{if(f.contentWindow===e.source&&f._restore)f._restore()});
+    return;
+  }
+  if(d.type!=='onPlayerReady')return;
   document.querySelectorAll('iframe[data-tiktok-autoplay]').forEach(f=>{
     if(f.contentWindow===e.source){f.removeAttribute('data-tiktok-autoplay');f.contentWindow.postMessage({type:'play','x-tiktok-player':true},'*')}
   });
 });
+// バナーなどの一覧を大きく表示する画面（ギャラリー）
+let galleryBox,galleryReturn;
+function openGallery(w,from){
+  if(!galleryBox){
+    galleryBox=document.createElement('div');galleryBox.className='gallery';galleryBox.hidden=true;
+    galleryBox.innerHTML='<div class="gallery-backdrop" data-close></div><div class="gallery-panel" role="dialog" aria-modal="true" aria-labelledby="galleryTitle"><button type="button" class="gallery-close" data-close aria-label="閉じる">×</button><div class="gallery-scroll" tabindex="-1"><p class="gallery-eyebrow">DESIGN</p><h3 class="gallery-title" id="galleryTitle"></h3><div class="gallery-body"></div></div></div>';
+    document.body.append(galleryBox);
+    galleryBox.addEventListener('click',e=>{if(e.target.closest('[data-close]'))closeGallery()});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!galleryBox.hidden)closeGallery()});
+  }
+  galleryReturn=from;
+  galleryBox.querySelector('.gallery-panel').classList.remove('is-video','is-video-wide');
+  galleryBox.querySelector('.gallery-panel').classList.toggle('is-post',w.galleryLayout==='post');
+  galleryBox.querySelector('.gallery-panel').classList.toggle('is-feature',w.galleryLayout==='feature');
+  galleryBox.querySelector('.gallery-eyebrow').textContent=w.category==='other'?'OTHER':'DESIGN';
+  galleryBox.querySelector('.gallery-title').textContent=w.title;
+  const body=galleryBox.querySelector('.gallery-body');body.replaceChildren();
+  const groups=[];w.gallery.forEach(g=>{let grp=groups.find(x=>x.name===(g.group||''));if(!grp){grp={name:g.group||'',items:[]};groups.push(grp)}grp.items.push(g)});
+  groups.forEach(grp=>{
+    const sec=document.createElement('section');sec.className='gallery-group';
+    if(grp.name){const h=document.createElement('h4');h.textContent=grp.name;sec.append(h)}
+    const list=document.createElement('div');list.className='gallery-list';
+    if(grp.items.length>1&&grp.items.every(g=>/\.png$/i.test(g.src)))list.classList.add('is-stamps');
+    grp.items.forEach(g=>{
+      const fig=document.createElement('figure');fig.className='gallery-item'+(/\.png$/i.test(g.src)?' is-png':'');
+      const img=document.createElement('img');img.src=g.src;img.alt=g.alt||((grp.name?grp.name+' ':'')+(g.size||''));img.loading='lazy';fig.append(img);
+      list.append(fig);
+    });
+    sec.append(list);
+    const note=(grp.items.find(g=>g.note)||{}).note;
+    if(note){const pnote=document.createElement('p');pnote.className='gallery-note';pnote.textContent=note;sec.append(pnote)}
+    body.append(sec);
+  });
+  galleryBox.hidden=false;document.documentElement.classList.add('is-gallery-open');
+  const panel=galleryBox.querySelector('.gallery-scroll');panel.scrollTop=0;panel.focus();
+}
+// 動画を大きく表示する画面（ギャラリーと同じ枠を使います）
+function openVideo(w,from,makeFrame){
+  openGallery({title:w.title,category:w.category,gallery:[]},from);
+  const panel=galleryBox.querySelector('.gallery-panel');
+  panel.classList.add('is-video');panel.classList.toggle('is-video-wide',!w.tiktok);
+  galleryBox.querySelector('.gallery-eyebrow').textContent=catLabel(w.category);
+  const body=galleryBox.querySelector('.gallery-body');
+  const wrap=document.createElement('div');wrap.className='video-player'+(w.tiktok?' is-vertical':'');
+  if(w.thumbnail)wrap.style.backgroundImage='url("'+w.thumbnail+'")';   // 動画を読み込むまでサムネイルを表示
+  // 再生が終わったら（TikTok）、サムネイルと再生ボタンに戻し、押すと最初から再生します
+  const cover=document.createElement('button');cover.type='button';cover.className='work-cover';cover.setAttribute('aria-label',w.title+' をもう一度再生');
+  if(w.thumbnail){const img=document.createElement('img');img.src=w.thumbnail;img.alt='';cover.append(img)}
+  const play=document.createElement('span');play.className='work-play';play.setAttribute('aria-hidden','true');cover.append(play);
+  const start=()=>{const f=makeFrame(true);if(w.tiktok)f._restore=()=>{if(f.isConnected)f.replaceWith(cover)};wrap.replaceChildren(f)};
+  cover.addEventListener('click',start);
+  body.append(wrap);start();
+  const text=w.note||w.description;
+  if(text){const box=document.createElement('div');box.className='video-info';
+    const p=document.createElement('p');p.className='gallery-note';p.textContent=text;box.append(p);body.append(box)}
+}
+function closeGallery(){
+  galleryBox.querySelector('.gallery-body').replaceChildren();   // 動画を止めるため、中身を消します
+  galleryBox.hidden=true;document.documentElement.classList.remove('is-gallery-open');
+  if(galleryReturn)galleryReturn.focus();
+}
 // 絞り込みボタンと説明文を作ります
 const filterBox=document.getElementById('filters');
 const filterText=document.getElementById('filterText');
@@ -391,5 +584,24 @@ function applyHash(scroll){
 }
 window.addEventListener('hashchange',()=>applyHash(true));
 applyHash(false);
-if(contactEmail){const a=document.getElementById('emailLink');a.href='mailto:'+contactEmail;a.textContent='メールで問い合わせる ↗'}
+if(contactEmail&&document.getElementById('emailLink')){const a=document.getElementById('emailLink');a.href='mailto:'+contactEmail;a.textContent='メールで問い合わせる ↗'}
 document.getElementById('year').textContent=new Date().getFullYear();
+
+// ファーストビュー下の「My Portfolio」を、画面の左端から右端までちょうど届く大きさに合わせます
+(function(){
+  const el=document.querySelector('.hero-bigtext');
+  if(!el)return;
+  const fit=()=>{
+    const cs=getComputedStyle(el);
+    const avail=el.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+    el.style.fontSize='100px';
+    const span=document.createElement('span');span.textContent=el.textContent;span.style.whiteSpace='nowrap';
+    el.textContent='';el.append(span);
+    const w=span.getBoundingClientRect().width;
+    el.textContent=span.textContent;
+    if(w>0)el.style.fontSize=(100*avail/w).toFixed(2)+'px';
+  };
+  fit();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+  let t;window.addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(fit,150)});
+})();

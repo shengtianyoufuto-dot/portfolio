@@ -3,7 +3,7 @@
 
 /* ===== ファーストビュー：斜めに流れる作品サムネイル ===== */
 .hero-copy{position:relative;z-index:2}
-.hero-copy h1,.hero-copy p{text-shadow:0 0 18px rgba(244,244,242,.9),0 0 6px rgba(244,244,242,.9)}
+.hero-copy h1,.hero-copy p{text-shadow:0 0 18px rgba(252,245,228,.9),0 0 6px rgba(252,245,228,.9)}
 .hero-number{z-index:2;text-align:left}
 .hero-marquee{--col-w:clamp(220px,22vw,380px);--tile-gap:clamp(28px,3.4vw,60px);position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 9%,#000 91%,transparent)}
 .marquee-stage{position:absolute;left:55%;top:50%;height:230%;display:flex;align-items:flex-start;gap:var(--tile-gap);transform:translateY(-50%) rotate(15deg);transform-origin:center}
@@ -18,7 +18,7 @@
 .marquee-tile .work-placeholder{font-size:clamp(12px,1.1vw,15px);letter-spacing:.12em;text-align:center;line-height:1.5;padding:0 12px}
 /* メインビジュアルの背景（ヘッダーも背景の上に重ねます） */
 .header{position:absolute;top:0;left:0;right:0;z-index:10}
-.hero{min-height:100vh;min-height:100svh;padding-top:calc(96px + clamp(24px,4vh,56px));background:#efebe0 url("images/hero-bg.jpg?v=3") 30% center/cover no-repeat}
+.hero{min-height:100vh;min-height:100svh;padding-top:calc(96px + clamp(24px,4vh,56px));background:#fcf4e3 url("images/hero-bg.jpg?v=5") 30% center/cover no-repeat}
 .hero-marquee{-webkit-mask-image:linear-gradient(to bottom,transparent 60px,#000 190px,#000 91%,transparent);mask-image:linear-gradient(to bottom,transparent 60px,#000 190px,#000 91%,transparent)}
 @media(max-width:700px){.hero{min-height:100vh;min-height:100svh;padding-top:calc(74px + 28px);background-position:62% center}.hero-marquee{-webkit-mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 90%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 90%,transparent)}}
 /* ヘッダー：白い角丸の枠に収めて、背景の上に浮かせます */
@@ -84,3 +84,134 @@
   .hero-copy{margin:0 12px;padding:26px 18px 28px}
   .hero-copy h1{font-size:33px}
 }
+
+/* ファーストビューの下端：画像をぼかさず、境目でくっきり切ります（上端のヘッダー付近のぼかしはそのまま） */
+.hero-marquee{-webkit-mask-image:linear-gradient(to bottom,transparent 60px,#000 190px);mask-image:linear-gradient(to bottom,transparent 60px,#000 190px)}
+@media(max-width:700px){.hero-marquee{-webkit-mask-image:linear-gradient(to bottom,transparent 70px,#000 140px);mask-image:linear-gradient(to bottom,transparent 70px,#000 140px)}}
+
+/* ファーストビュー下の境目に置く大きな「My Portfolio」（下側は境目で切れます） */
+.hero-bigtext{position:absolute;left:0;right:0;bottom:0;z-index:0;padding:0 var(--bigtext-pad,clamp(10px,1.6vw,28px));transform:translateY(24%);font-family:'DM Sans',sans-serif;font-weight:600;font-size:18.5vw;line-height:1;letter-spacing:-.045em;white-space:nowrap;text-align:center;color:rgba(255,255,255,.7);text-shadow:0 2px 6px rgba(36,59,83,.12);pointer-events:none;user-select:none}
+.hero-number{display:none}
+@media(max-width:700px){.hero-bigtext{z-index:1;transform:translateY(22%);text-shadow:0 1px 4px rgba(36,59,83,.14)}}
+
+/* ===== ファーストビューの文字（見出し・説明・名前・ボタン） ===== */
+.hero-copy .eyebrow{display:block;font-size:12px;letter-spacing:.2em;color:#666666}
+.hero-copy h1{margin:16px 0 0}
+.hero-copy h1 .mark{background:linear-gradient(transparent 80%,#F6C744 80%,#F6C744 94%,transparent 94%);padding:0 .02em}
+.hero-copy .hero-lead{margin:22px 0 0;font-size:15px;line-height:1.9;color:#4A4A4A;font-weight:500}
+.hero-copy .hero-name{margin:20px 0 0;display:flex;align-items:baseline;gap:12px;font-size:15px;font-weight:700;letter-spacing:.12em;color:#222222}
+.hero-copy .hero-name span{font-size:11px;font-weight:600;letter-spacing:.14em;color:#666666}
+.hero .pill.hero-btn{margin-top:26px;background:#243B53;border-color:#243B53;color:#fff}
+.hero .pill.hero-btn:hover{background:#1a2c3f;border-color:#1a2c3f}
+@media(max-width:700px){
+  .hero-copy .eyebrow{font-size:10px;letter-spacing:.16em}
+  .hero-copy h1{margin-top:12px;font-size:clamp(28px,9.4vw,40px)}
+  .hero-copy .hero-lead{margin-top:16px;font-size:13px}
+  .hero-copy .hero-name{margin-top:14px;font-size:14px}
+  .hero-copy .hero-name span{font-size:10px}
+  .hero .pill.hero-btn{margin-top:20px}
+}
+/* 「Hinata's Portfolio」の帯 */
+.hero-copy .hero-badge{display:inline-flex;align-items:center;gap:clamp(14px,1.4vw,22px);margin:28px 0 0;padding:clamp(10px,.9vw,14px) clamp(22px,2vw,32px);border-radius:16px;background:#243B53;color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(18px,1.75vw,26px);line-height:1.2;letter-spacing:.01em;white-space:nowrap;box-shadow:0 8px 22px rgba(36,59,83,.18)}
+.hero-badge-star{width:1.15em;height:1.15em;flex:none}
+@media(max-width:700px){.hero-copy .hero-badge{margin-top:20px;gap:12px;padding:10px 18px;border-radius:12px;font-size:clamp(16px,5vw,20px)}}
+.hero-copy .hero-badge{text-shadow:none}
+/* スマホ：白い枠を中身の幅に合わせ、画面の真ん中（左右・上下）に置きます */
+@media(max-width:700px){
+  .hero{justify-content:center}
+  .hero-copy{width:fit-content;max-width:calc(100% - 36px);margin-left:auto;margin-right:auto;padding:28px 24px 30px;border-radius:0;background:rgba(255,255,255,.8)}
+  .hero-copy h1{font-size:clamp(26px,8.2vw,36px)}
+  .hero-copy .hero-badge{font-size:clamp(15px,4.6vw,19px);padding:9px 16px}
+}
+/* メニューとセクション見出しの日本語表記 */
+.header nav a{letter-spacing:.12em}
+.section-heading h2.ja-title,.about-section h2.ja-title{font-size:clamp(34px,4.4vw,52px);letter-spacing:.04em;line-height:1.25}
+.section-heading p{letter-spacing:.16em;font-weight:700;font-size:11px}
+@media(max-width:700px){.header nav{gap:18px}.header nav a{font-size:11px;letter-spacing:.08em}.section-heading h2.ja-title,.about-section h2.ja-title{font-size:34px}}
+/* 制作実績の絞り込みボタン：文字を大きく */
+.filters{gap:12px}
+.filters button{padding:12px 30px;font:700 15px 'DM Sans','Noto Sans JP',sans-serif;letter-spacing:.08em}
+@media(max-width:700px){.filters{gap:8px}.filters button{padding:10px 20px;font-size:13px}}
+/* SNSショートの下：TikTok・Instagramへのリンク */
+.sns-links{max-width:1040px;margin:72px auto 0;padding:clamp(22px,2.4vw,34px) clamp(22px,3.2vw,52px) clamp(30px,3.2vw,44px);background:#eef3ea;border:1.5px solid #c9d6c3;border-radius:28px;text-align:center}
+.sns-links-title{position:relative;margin:0 0 clamp(22px,2.2vw,30px);padding-top:30px;font-size:clamp(20px,2vw,27px);font-weight:700;letter-spacing:.08em;line-height:1.5;color:#1f2b44}
+.sns-links-title::before{content:'';position:absolute;left:50%;top:0;width:56px;height:4px;margin-left:-28px;border-radius:4px;background:#a9bd9f}
+.sns-links-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.2vw,28px);text-align:left}
+.sns-links[hidden]{display:none}
+.sns-link{display:flex;align-items:center;gap:22px;padding:24px 28px 24px 30px;background:#fff;border:1.5px solid #c9d3c4;border-radius:18px;box-shadow:0 8px 24px rgba(32,35,34,.06);transition:transform .2s,box-shadow .2s,border-color .2s}
+a.sns-link:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(32,35,34,.1);border-color:#9fb39a}
+.sns-link-icon{width:64px;height:64px;flex:none;object-fit:contain}
+.sns-link-text{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+.sns-link-text strong{font-family:'DM Sans',sans-serif;font-size:clamp(22px,2.2vw,28px);font-weight:700;line-height:1.2;color:#1f2b44;letter-spacing:.01em}
+.sns-link-text span{font-size:15px;color:#6a6f6c;letter-spacing:.08em}
+.sns-link-arrow{width:44px;height:44px;flex:none;border-radius:50%;background:#e4ebdf;color:#4d5c4b;display:flex;align-items:center;justify-content:center;font-size:20px;transition:background .2s}
+a.sns-link:hover .sns-link-arrow{background:#d3dfcc}
+.sns-link.is-disabled{opacity:.6}
+@media(max-width:700px){.sns-links{margin-top:48px;padding:22px 16px 20px;border-radius:20px}.sns-links-title{font-size:18px;padding-top:22px;margin-bottom:18px;letter-spacing:.04em}.sns-links-title::before{width:44px;margin-left:-22px;height:3px}.sns-links-grid{grid-template-columns:1fr;gap:12px}.sns-link{gap:16px;padding:18px 18px 18px 20px;border-radius:14px}.sns-link-icon{width:52px;height:52px}.sns-link-text strong{font-size:21px}.sns-link-text span{font-size:13px}.sns-link-arrow{width:38px;height:38px;font-size:17px}}
+/* デザイン：押すとバナー一覧が開くカード */
+.work-visual.has-gallery{cursor:pointer}
+.work-gallery-open{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:pointer}
+.work-gallery-open img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.work-gallery-open:hover img{transform:scale(1.03)}
+.work-gallery-open .work-more{left:22px;bottom:22px}
+.work-gallery-open:hover .work-more{background:#000}
+/* ギャラリー（一覧）画面 */
+.is-gallery-open,.is-gallery-open body{overflow:hidden}
+.gallery{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vw,40px)}
+.gallery[hidden]{display:none}
+.gallery-backdrop{position:absolute;inset:0;background:rgba(22,28,34,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.gallery-panel{position:relative;width:min(1080px,100%);max-height:100%;overflow:auto;background:#f6f7f5;border-radius:24px;padding:clamp(28px,4vw,56px) clamp(18px,4vw,60px) clamp(32px,4vw,56px);box-shadow:0 30px 80px rgba(0,0,0,.3);outline:none}
+.gallery-close{position:sticky;top:0;float:right;margin:-12px -12px 0 0;width:46px;height:46px;border-radius:50%;border:0;background:#202322;color:#fff;font-size:26px;line-height:1;cursor:pointer;z-index:1}
+.gallery-close:hover{background:#243B53}
+.gallery-eyebrow{margin:0;font-size:11px;font-weight:700;letter-spacing:.2em;color:#8a9d8f}
+.gallery-title{margin:6px 0 0;font-size:clamp(24px,2.6vw,34px);font-weight:700;letter-spacing:.04em;color:#222}
+.gallery-group{margin-top:clamp(28px,3.4vw,44px)}
+.gallery-group h4{margin:0 0 16px;padding-left:14px;border-left:4px solid #F6C744;font-size:clamp(16px,1.5vw,19px);font-weight:700;letter-spacing:.06em;color:#243B53;line-height:1.4}
+.gallery-list{display:grid;grid-template-columns:1fr;gap:18px}
+.gallery-item{margin:0}
+.gallery-item img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 10px 26px rgba(32,35,34,.12);background:#fff}
+.gallery-item figcaption{margin-top:8px;font-size:12px;letter-spacing:.08em;color:#7a807c}
+@media(min-width:701px){.gallery-list{grid-template-columns:minmax(0,4.222fr) minmax(0,2fr);align-items:start}}
+@media(max-width:700px){.gallery-panel{border-radius:18px}.gallery-close{width:40px;height:40px;font-size:22px;margin:-8px -6px 0 0}}
+.work-visual.has-gallery::after{display:none}
+/* ギャラリー：閉じるボタンはスクロールせず右上に固定、中身だけスクロール */
+.gallery-panel{display:flex;flex-direction:column;overflow:hidden;padding:0;max-height:100%}
+.gallery-scroll{overflow:auto;padding:clamp(28px,4vw,56px) clamp(18px,4vw,60px) clamp(32px,4vw,56px);outline:none}
+.gallery-close{position:absolute;top:clamp(14px,1.8vw,22px);right:clamp(14px,1.8vw,22px);float:none;margin:0;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+.gallery-title{padding-right:56px}
+@media(min-width:701px){.gallery-scroll{padding-right:clamp(80px,7vw,96px)}.gallery-title{padding-right:0}}
+/* ギャラリー：表示幅を広く、キャンペーンごとの説明欄 */
+.gallery-panel{width:min(1320px,100%)}
+.gallery-note{margin:16px 0 0;padding:16px 20px;background:#fff;border:1px solid #e3e8e1;border-radius:12px;font-size:14px;line-height:1.9;color:#4A4A4A;letter-spacing:.02em}
+@media(max-width:700px){.gallery-note{padding:14px 16px;font-size:13px}}
+.work-visual:not(a):not(.has-embed):not(.has-gallery)::after{display:none}
+/* SNS投稿（縦長）の一覧：3列 */
+.gallery-panel.is-post .gallery-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:700px){.gallery-panel.is-post .gallery-list{grid-template-columns:1fr;gap:16px}}
+/* その他：1作品ずつ、画像と説明を横並び */
+.gallery-panel.is-feature .gallery-group{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);grid-template-rows:auto 1fr;column-gap:clamp(24px,3vw,44px);align-items:start}
+.gallery-panel.is-feature .gallery-group h4{grid-column:2;grid-row:1;margin-top:6px}
+.gallery-panel.is-feature .gallery-list{grid-column:1;grid-row:1/3;grid-template-columns:1fr}
+.gallery-panel.is-feature .gallery-note{grid-column:2;grid-row:2;margin-top:0}
+.gallery-panel.is-feature .gallery-item img{max-height:min(560px,70vh);width:auto;max-width:100%;margin:0 auto}
+.gallery-panel.is-feature .gallery-item.is-png img{width:100%;object-fit:contain;padding:clamp(12px,1.6vw,22px)}
+.gallery-panel.is-feature .gallery-group+.gallery-group{padding-top:clamp(28px,3.4vw,44px);border-top:1px solid #e3e8e1}
+@media(max-width:700px){.gallery-panel.is-feature .gallery-group{display:block}.gallery-panel.is-feature .gallery-note{margin-top:16px}.gallery-panel.is-feature .gallery-item img{max-height:none}}
+/* LINEスタンプ：小さめのタイルを3×3で並べる */
+.gallery-panel.is-feature .gallery-list.is-stamps{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1vw,14px)}
+.gallery-panel.is-feature .gallery-list.is-stamps .gallery-item img{width:100%;aspect-ratio:37/32;max-height:none;object-fit:contain;padding:clamp(6px,.8vw,12px);border-radius:10px;box-shadow:0 4px 14px rgba(32,35,34,.08)}
+/* リンクが1つだけのとき：カード1枚を中央に */
+.sns-links-grid.is-single{grid-template-columns:minmax(0,480px);justify-content:center}
+.sns-links:has(.is-single){max-width:640px}
+@media(max-width:700px){.sns-links-grid.is-single{grid-template-columns:1fr}}
+/* 動画のポップアップ */
+.gallery-panel.is-video{width:min(1040px,100%)}
+.gallery-panel.is-video .gallery-body{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:start;margin-top:clamp(20px,2.4vw,30px)}
+.video-player{position:relative;background:#000;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px rgba(32,35,34,.2)}
+.video-player.is-vertical{aspect-ratio:9/16;height:min(640px,calc(100vh - 320px));height:min(640px,calc(100dvh - 320px));min-height:360px;background:#000 center/cover no-repeat}
+.video-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-player .work-cover img{width:100%;height:100%;object-fit:cover}
+.gallery-panel.is-video .gallery-note{margin:0}
+.gallery-panel.is-video-wide .gallery-body{grid-template-columns:1fr}
+.gallery-panel.is-video-wide .video-player{aspect-ratio:16/9;width:100%}
+@media(max-width:700px){.gallery-panel.is-video .gallery-body{grid-template-columns:1fr;gap:16px}.video-player.is-vertical{height:auto;width:100%;min-height:0}}
