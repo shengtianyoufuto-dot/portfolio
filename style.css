@@ -215,3 +215,42 @@ a.sns-link:hover .sns-link-arrow{background:#d3dfcc}
 .gallery-panel.is-video-wide .gallery-body{grid-template-columns:1fr}
 .gallery-panel.is-video-wide .video-player{aspect-ratio:16/9;width:100%}
 @media(max-width:700px){.gallery-panel.is-video .gallery-body{grid-template-columns:1fr;gap:16px}.video-player.is-vertical{height:auto;width:100%;min-height:0}}
+/* 絞り込みボタンの下の説明文：大きく読みやすく */
+.filter-text{font-size:16px;line-height:1.9;color:#4A4A4A;margin:22px 0 36px;letter-spacing:.04em}
+@media(max-width:700px){.filter-text{font-size:14px;margin:18px 0 28px}}
+/* 「すべて」の一覧：サムネイル下の大きな文字が隠れないよう、「〇〇をすべて見る」ボタンは出さず、下の影も薄くします（カード全体を押すと移動します） */
+.work-jump .work-more{display:none}
+.work-jump::before{background:linear-gradient(transparent 60%,rgba(0,0,0,.22))}
+/* 「すべて」の一覧：カードの下の「〇〇をすべて見る →」ボタン */
+.work-go{display:inline-flex;align-items:center;padding:12px 22px;border-radius:100px;background:#202322;color:#fff;font-size:14px;font-weight:700;letter-spacing:.06em;line-height:1;transition:background .2s}
+.work-go:hover{background:#000}
+@media(max-width:700px){.work-go{font-size:13px;padding:11px 20px}}
+/* 「すべて」の一覧：写真から下のボタンまで、カード全体を押せる範囲にします */
+.work-card.is-jump{position:relative;cursor:pointer}
+.work-card.is-jump .work-go{position:static}
+.work-card.is-jump .work-go::after{content:'';position:absolute;inset:0;z-index:3}
+.work-card.is-jump:hover .work-jump img{transform:scale(1.04)}
+.work-card.is-jump:hover .work-go{background:#000}
+/* 動画の紹介欄（制作理由・担当・制作時間・工夫箇所） */
+.video-spec{background:#fff;border:1.5px solid #c9d6c3;border-radius:18px;padding:6px clamp(20px,2.4vw,32px)}
+.video-spec-item{padding:clamp(18px,2vw,24px) 0}
+.video-spec-item+.video-spec-item{border-top:1px solid #e3e8e1}
+.video-spec-item h4{margin:0 0 8px;padding-left:16px;border-left:5px solid #7f9c85;font-size:clamp(18px,1.7vw,22px);font-weight:700;line-height:1.3;letter-spacing:.06em;color:#222}
+.video-spec-item p{margin:0;padding-left:21px;font-size:15px;line-height:1.85;color:#333}
+@media(max-width:700px){.video-spec{padding:2px 18px}.video-spec-item{padding:16px 0}.video-spec-item h4{font-size:17px;border-left-width:4px;padding-left:12px}.video-spec-item p{font-size:14px;padding-left:16px}}
+/* キャンペーンバナーなどの紹介欄（制作概要・制作時間・工夫した点） */
+.gallery-spec{margin-top:16px}
+.video-spec-item h5{margin:0 0 8px;padding-left:16px;border-left:5px solid #7f9c85;font-size:clamp(16px,1.4vw,18px);font-weight:700;line-height:1.3;letter-spacing:.06em;color:#222}
+.gallery-spec .video-spec-item{padding:clamp(14px,1.6vw,20px) 0}
+@media(max-width:700px){.video-spec-item h5{font-size:16px;border-left-width:4px;padding-left:12px}}
+.gallery-summary{margin-top:clamp(20px,2.4vw,28px)}
+/* スマホのSNS投稿：横スワイプで1枚ずつ切り替え */
+.gallery-dots{display:none}
+@media(max-width:700px){
+  .gallery-panel.is-post .gallery-list{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -16px;padding:4px 16px 14px;scroll-padding:0 16px}
+  .gallery-panel.is-post .gallery-list::-webkit-scrollbar{display:none}
+  .gallery-panel.is-post .gallery-item{flex:0 0 86%;scroll-snap-align:center}
+  .gallery-panel.is-post .gallery-dots{display:flex;justify-content:center;gap:8px;margin:4px 0 2px}
+  .gallery-dots span{width:8px;height:8px;border-radius:50%;background:#cfd6cc;transition:background .2s,transform .2s}
+  .gallery-dots span.is-active{background:#243B53;transform:scale(1.15)}
+}

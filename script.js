@@ -9,13 +9,13 @@
 const categories = {
   all:      { label: 'すべて',       text: 'これまでに制作した作品の一覧です。' },
   sns:      { label: 'SNSショート',       text: 'Instagram・TikTokなど、SNS向けのショート動画。企画から撮影・編集まで担当しています。',
-              cover: '＃' },   // 例: 'images/category/sns.jpg'
+              cover: 'images/category/sns.jpg?v=3' },
   roomtour: { label: 'ルームツアー', text: '物件の魅力が伝わるルームツアー動画。撮影・編集・テロップ制作を担当しています。',
-              cover: '' },   // 例: 'images/category/roomtour.jpg'
+              cover: 'images/category/roomtour.jpg?v=4' },
   design:   { label: 'デザイン',    text: 'バナーやサムネイルなど、SNS・Web向けのグラフィックデザインです。',
-              cover: '' },   // 例: 'images/category/design.jpg'
+              cover: 'images/category/design.jpg' },   // 「すべて」の一覧用（背景文字あり）
   other:    { label: 'その他',     text: 'その他の制作物です。',
-              cover: '' },   // 例: 'images/category/other.jpg'
+              cover: 'images/category/other.jpg' },   // 「すべて」の一覧用（背景文字あり）
 };
 
 // ============================================================
@@ -34,6 +34,7 @@ const categories = {
 //   image       … 画像を表示したいとき。images フォルダに入れて 'images/ファイル名.jpg'
 //   url         … 画像カードをクリックしたときに開くページ（なければ空のまま）
 //   note        … 動画を開いたときに下に表示する説明文
+//   info        … 動画を開いたときの紹介欄（reason 制作理由 / role 担当 / time 制作時間 / point 工夫箇所）。書いた項目だけ表示します
 //   使わない項目は '' のまま、または行ごと消してOKです。
 // ============================================================
 const works = [
@@ -44,6 +45,7 @@ const works = [
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7696817418936601876',
     note: 'IT部の部署紹介動画です。社員をアメコミのヒーロー風に登場させ、部署の雰囲気や仕事内容を楽しく伝えました。企画・撮影・編集を担当しています。',
     thumbnail: 'images/sns/sns01.jpg',
+    info: { reason: '求職者にIT部の仕事内容や一緒に働く社員の雰囲気を知ってもらい、入社後に働くイメージを持ってもらうために制作しました。', role: '企画・撮影・編集', time: '撮影約3時間・編集約10時間', point: '冒頭でアメコミ映画のワンシーンを再現し、視聴者の目を引く導入にしました。その後も、社員の登場シーンに分身や高速移動の演出を取り入れ、ヒーロー映画のような世界観を保ちながら、IT部のメンバーをテンポよく紹介しました。' },
   },
   {
     title: 'コーポレート部 部署紹介動画',
@@ -52,6 +54,7 @@ const works = [
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7696816154635062548',
     note: 'コーポレート部の部署紹介動画です。明るいメンバーの人柄が伝わるよう、テンポのよいカットとテロップで仕上げました。企画・撮影・編集を担当しています。',
     thumbnail: 'images/sns/sns02.jpg',
+    info: { reason: '求職者にコーポレート部の仕事内容や一緒に働く社員の雰囲気を知ってもらい、入社後に働くイメージを持ってもらうために制作しました。', role: '企画・撮影・編集', time: '撮影約1時間・編集約4時間', point: 'M-1グランプリの芸人紹介映像を参考に、メンバ1一人ひとりの個性が自然に伝わる登場シーンを考えました。撮影では、メンバー同士が普段どおりにやり取りする中で生まれる笑顔を捉え、部署の仲の良さや明るい雰囲気が伝わるように工夫しました。' },
   },
   {
     title: 'マンスリー部 部署紹介動画',
@@ -60,6 +63,7 @@ const works = [
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7696421522574937364',
     note: 'マンスリー部の部署紹介動画です。電話対応など実際の業務の様子を中心に、仕事の流れが分かる構成にしました。企画・撮影・編集を担当しています。',
     thumbnail: 'images/sns/sns03.jpg',
+    info: { reason: '求職者にマンスリー部の仕事内容や一緒に働く社員の雰囲気を知ってもらい、入社後に働くイメージを持ってもらうために制作しました。', role: '企画・撮影・編集', time: '撮影約2時間・編集約10時間', point: '電話対応など実際の業務風景を中心に、仕事の流れが分かる構成にしました。登場するメンバーが多い中でも一人ひとりの個性が印象に残るよう、本人に「好きな言葉」を聞き、その言葉をそれぞれの紹介シーンに取り入れました。' },
   },
   {
     title: 'マーケティング部 部署紹介動画',
@@ -68,6 +72,7 @@ const works = [
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7696074689931660564',
     note: 'マーケティング部の部署紹介動画です。メンバーの掛け合いを活かして、部署の雰囲気が伝わるように編集しました。企画・撮影・編集を担当しています。',
     thumbnail: 'images/sns/sns04.jpg',
+    info: { reason: '求職者にマーケティング部の仕事内容や一緒に働く社員の雰囲気を知ってもらい、入社後に働くイメージを持ってもらうために制作しました。', role: '企画・撮影・編集', time: '撮影約2時間・編集約3時間', point: '『コンフィデンスマンJP』のオープニングを参考に、目の錯覚を利用した演出を取り入れました。思わず二度見するような仕掛けで視聴者の目を引き、次に何が起こるのか気になる構成にしました。' },
   },
   {
     title: '大喜利大会 紹介動画',
@@ -76,6 +81,7 @@ const works = [
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7690897684890258708',
     note: '9月の社内イベント「大喜利大会」の様子をまとめた動画です。お題と回答をテロップで見せ、会場の盛り上がりが伝わるようにしました。',
     thumbnail: 'images/sns/sns05.jpg',
+    info: { reason: '社内イベントの様子を通じて、社員が楽しむ姿や交流の様子を紹介し、会社の明るく親しみやすい雰囲気を知ってもらうために制作しました。', role: '企画・撮影・編集', time: '撮影約1時間・編集約3時間', point: '『M-1グランプリ』や『IPPONグランプリ』の演出を参考に、社内の大喜利大会をお笑い番組風に紹介しました。どんな企画なのかがひと目で分かり、会場の楽しさも伝わるように工夫しました。' },
   },
   {
     title: 'もしも重力がなくなったら？',
@@ -84,6 +90,7 @@ const works = [
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7671206622827449620',
     note: '求人募集の動画です。「もしも重力がなくなったら？」という設定で、思わず見たくなる冒頭を意識して制作しました。',
     thumbnail: 'images/sns/sns06.jpg',
+    info: { reason: '求人募集を、多くの人に見てもらうため。', role: '企画・編集', time: '編集約4時間', point: 'SNSで話題の、AIを使って「もしも」を解説する動画形式を取り入れました。「もしも重力がなくなったら?」という問いかけで視聴者の興味を引き、動画の最後に求人募集の案内へつなげる構成にしました。' },
   },
   {
     title: 'そんなもの持ってくるな選手権',
@@ -92,6 +99,7 @@ const works = [
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7676434770192223509',
     note: '社員企画「そんなもの持ってくるな選手権 Part2」の動画です。持ち寄った品へのリアクションを中心に、笑いどころが伝わるよう編集しました。',
     thumbnail: 'images/sns/sns07.jpg',
+    info: { reason: '社員が参加する企画を通じて、社員同士の仲の良さや職場の明るい雰囲気を伝え、より多くの人に会社を知ってもらうために制作しました。', role: '企画・撮影・編集', time: '撮影約40分・編集約3時間', point: '持ち寄った品そのものに加え、それを見た社員の表情やリアクションにも注目して編集しました。品を見せた直後にリアクションを入れることで、何が面白かったのかが視聴者にも伝わるよう工夫しました。' },
   },
   {
     title: '絶景のはずが、求人募集!?',
@@ -100,6 +108,7 @@ const works = [
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7639642814724427029',
     note: '求人募集の動画です。オーロラの映像と組み合わせ、編集の幅を見せる演出にしました。',
     thumbnail: 'images/sns/sns08.jpg',
+    info: { reason: '意外な展開をきっかけに視聴者の興味を引き、求人募集の案内を印象に残すために制作しました。', role: '企画・撮影・編集', time: '撮影約10分・編集約2時間', point: 'SNSで流行していた、写真を投げるとその絶景が目の前に現れる演出を参考にしました。オーロラが現れると見せかけて求人募集の画像を出すことで、視聴者の興味を引きながら、採用情報を印象に残せるよう工夫しました。' },
   },
   {
     title: 'ショートコント風 求人募集',
@@ -108,6 +117,7 @@ const works = [
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7637432651980344596',
     note: '社員紹介シリーズの動画です。季節感のある演出で、社員の人柄が伝わるようにしました。',
     thumbnail: 'images/sns/sns09.jpg',
+    info: { reason: '求人募集を、気軽に見てもらえる形で届けるため。', role: '企画・撮影・編集', time: '撮影約20分・編集約2時間', point: 'ショートコント風に仕立て、会話のやり取りから「このあとどうなるんだろう」と気になる流れを作りました。最後のオチに求人募集の案内を組み込み、楽しみながら採用情報に触れられるよう工夫しました。' },
   },
   {
     title: '新入社員の1日紹介',
@@ -116,6 +126,7 @@ const works = [
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7624435764977208593',
     note: '新入社員の1日を紹介する動画です。出社から退社までの流れを追い、入社後の働き方がイメージできる構成にしました。',
     thumbnail: 'images/sns/sns10.jpg',
+    info: { reason: '入社後の働き方を具体的にイメージしてもらうため。', role: '企画・撮影・編集', time: '撮影約3時間・編集約10時間', point: '写真に奥行きを持たせて立体的に見せる演出で、視聴者の興味を引くよう工夫しました。出社から退社までの場面を時系列に並べ、新入社員がどんな仕事をし、1日をどう過ごすのかが分かりやすい構成にしました。' },
   },
   {
     title: '七夕イベント 紹介動画',
@@ -124,6 +135,7 @@ const works = [
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7667509404400373012',
     note: '七夕にあわせた社内企画の動画です。社員の願いごとを紹介し、会社の明るい雰囲気を伝えました。',
     thumbnail: 'images/sns/sns11.jpg',
+    info: { reason: '季節の社内企画を通して、会社の明るい雰囲気を伝えるため。', role: '企画・撮影・編集', time: '撮影約1時間・編集約4時間', point: '「社員の七夕の願いをかなえる」という企画の中で、社員がMrs. GREEN APPLEになりきって登場する演出を取り入れました。人気アーティストのものまねで視聴者の興味を引きつつ、演じる社員の個性や遊び心も伝わるように工夫しました。' },
   },
   {
     title: '社内お食事会 紹介動画',
@@ -132,13 +144,14 @@ const works = [
     tiktok: 'https://www.tiktok.com/@bratto_recruit/video/7693482293389724949',
     note: '9月の社内イベント「お食事会」の様子をまとめた動画です。和やかな雰囲気が伝わるよう、会話の場面を中心に編集しました。',
     thumbnail: 'images/sns/sns12.jpg',
+    info: { reason: '社内イベントを通して、社員同士の距離の近さを伝えるため。', role: '企画・撮影・編集', time: '撮影約2時間・編集約4時間', point: '冒頭はおしゃれなVlog風に仕立て、続きを見たくなる導入にしました。その後は、社員同士が会話を楽しんだり笑い合ったりする場面を中心に編集し、仲の良さやその場の楽しさが伝わるように工夫しました。' },
   },
   {
     title: 'ルームツアー動画',
     category: 'roomtour',
     description: '撮影・編集・テロップ制作',
     youtube: 'https://www.youtube.com/embed/PHBCDgUPTmE',
-    note: 'BraTToなんばパークス前のルームツアー動画です。部屋の広さや設備が分かるよう、入口から順に案内する構成で撮影・編集しました。',
+    note: 'BraTToなんばパークス前のルームツアー動画です。サムネイルでは、物件名や駅からの近さ、物件の魅力がひと目で伝わるように情報を整理しました。動画では室内を中心にテンポよくカットをつなぎ、短い時間でも部屋の広さや設備が分かるように工夫しました。',
     thumbnail: 'images/roomtour/roomtour01.jpg',
   },
   {
@@ -146,7 +159,7 @@ const works = [
     category: 'roomtour',
     description: '撮影・編集・テロップ制作',
     youtube: 'https://www.youtube.com/embed/OFkphFgNOkE',
-    note: 'BraTTo綾瀬ステーションフロントのルームツアー動画です。駅からの近さと室内の設備を、テロップで分かりやすく紹介しました。',
+    note: 'BraTTo綾瀬ステーションフロントのルームツアー動画です。サムネイルでは、物件名や駅からの近さ、物件の魅力がひと目で伝わるように情報を整理しました。動画では室内を中心にテンポよくカットをつなぎ、短い時間でも部屋の広さや設備が分かるように工夫しました。',
     thumbnail: 'images/roomtour/roomtour02.jpg',
   },
   {
@@ -154,6 +167,7 @@ const works = [
     category: 'roomtour',
     description: '撮影・編集・テロップ制作',
     tiktok: 'https://www.tiktok.com/@bratto_group/video/7689401925996973313',
+    info: { reason: '物件の魅力を動画で分かりやすく伝え、お部屋探しをしている方に住んだときのイメージを持ってもらうために制作しました。', role: '撮影・編集・サムネ制作', time: '撮影約40分・編集約2時間', point: '視聴者の興味を引くため、案内役がワイプに登場し、室内の映像に合わせて物件を紹介する形式にしました。特に伝えたい設備や好条件は、テロップを大きくポップアップさせ、物件の魅力がひと目で伝わるように工夫しました。' },
     note: 'BraTTo長堀タワーのルームツアー動画です。縦型動画で、スマホでも部屋の雰囲気が伝わるように撮影・編集しました。',
     thumbnail: 'images/roomtour/roomtour03.jpg',
   },
@@ -162,6 +176,7 @@ const works = [
     category: 'roomtour',
     description: '撮影・編集・テロップ制作',
     tiktok: 'https://www.tiktok.com/@bratto_group/video/7686796512428444949',
+    info: { reason: '物件の魅力を動画で分かりやすく伝え、お部屋探しをしている方に住んだときのイメージを持ってもらうために制作しました。', role: '撮影・編集・サムネ制作', time: '撮影約40分・編集約2時間', point: '視聴者の興味を引くため、案内役がワイプに登場し、室内の映像に合わせて物件を紹介する形式にしました。特に伝えたい設備や好条件は、テロップを大きくポップアップさせ、物件の魅力がひと目で伝わるように工夫しました。' },
     note: 'BraTTo月島カーサのルームツアー動画です。家具家電の配置や収納など、暮らしのイメージが湧くポイントを紹介しました。',
     thumbnail: 'images/roomtour/roomtour04.jpg',
   },
@@ -170,6 +185,7 @@ const works = [
     category: 'roomtour',
     description: '撮影・編集・テロップ制作',
     tiktok: 'https://www.tiktok.com/@bratto_group/video/7701656082673847573',
+    info: { reason: '物件の魅力を動画で分かりやすく伝え、お部屋探しをしている方に住んだときのイメージを持ってもらうために制作しました。', role: '撮影・編集・サムネ制作', time: '撮影約40分・編集約2時間', point: '視聴者の興味を引くため、案内役がワイプに登場し、室内の映像に合わせて物件を紹介する形式にしました。特に伝えたい設備や好条件は、テロップを大きくポップアップさせ、物件の魅力がひと目で伝わるように工夫しました。' },
     note: 'BraTTo今池ルミナスのルームツアー動画です。室内の明るさや設備を中心に、テンポよく紹介しました。',
     thumbnail: 'images/roomtour/roomtour05.jpg',
   },
@@ -178,6 +194,7 @@ const works = [
     category: 'roomtour',
     description: '撮影・編集・テロップ制作',
     tiktok: 'https://www.tiktok.com/@bratto_group/video/7694605868926618901',
+    info: { reason: '物件の魅力を動画で分かりやすく伝え、お部屋探しをしている方に住んだときのイメージを持ってもらうために制作しました。', role: '撮影・編集・サムネ制作', time: '撮影約40分・編集約2時間', point: '視聴者の興味を引くため、案内役がワイプに登場し、室内の映像に合わせて物件を紹介する形式にしました。特に伝えたい設備や好条件は、テロップを大きくポップアップさせ、物件の魅力がひと目で伝わるように工夫しました。' },
     note: 'BraTTo赤羽ジェネのルームツアー動画です。部屋の特徴が一目で分かるよう、テロップと構成を工夫しました。',
     thumbnail: 'images/roomtour/roomtour06.jpg',
   },
@@ -185,24 +202,55 @@ const works = [
     title: 'キャンペーンバナー',
     category: 'design',
     description: 'グラフィックデザイン',
-    image: 'images/design/campaign-thumb.jpg',
+    image: 'images/design/campaign-thumb.jpg?v=4',
     url: '',
+    // summary … 一覧の上に表示する、キャンペーンバナー全体の制作概要
+    summary: '毎月のキャンペーンを周知し、マンスリーマンションを探している方に、割引内容や開催期間をひと目で伝えるために制作しました。',
     // gallery … カードを押すと開く一覧。group ごとに見出しを付けて並べます（src は images/design フォルダの画像）
     //           note … そのキャンペーンの説明文（各キャンペーンの1枚目に書きます）
+    //           info … note の代わりに、制作時間（time）・工夫した点（point）に分けて書けます。書いた項目だけ表示します
     gallery: [
-      { group: '5月 新緑キャンペーン',     src: 'images/design/campaign-may-wide.jpg', size: '1140×270' , note: '新緑の山と湖の風景で、5月らしい爽やかさを表現しました。「80%OFF」は赤の大きな数字で一番目立つようにし、「空き室残りわずか！」のリボンで急ぎたくなる気持ちを後押ししています。' },
+      { group: '5月 新緑キャンペーン',     src: 'images/design/campaign-may-wide.jpg', size: '1140×270' ,
+        info: {
+          time: '2日',
+          point: '新緑の山と湖を背景に、5月らしい爽やかさを表現しました。手前に鹿を、奥の山並みの向こうに会社のキャラクター「ブラロボ」を配置し、風景に奥行きと広がりを持たせました。また様々な箇所でストーリーを持たせ、遊び心を足す工夫しました。',
+        } },
       { group: '5月 新緑キャンペーン',     src: 'images/design/campaign-may.jpg',      size: '740×370' },
-      { group: '6月 入居応援キャンペーン', src: 'images/design/campaign-jun-wide.jpg', size: '1140×270' , note: '紫陽花・雨粒・虹のモチーフで梅雨の時期らしさを出しつつ、明るい青紫でじめじめした印象にならないようにしました。「梅雨でも安心！」の吹き出しで、家具家電付きの手軽さを伝えています。' },
+      { group: '6月 入居応援キャンペーン', src: 'images/design/campaign-jun-wide.jpg', size: '1140×270' ,
+        info: {
+          time: '2日',
+          point: '紫陽花や雨粒、虹で梅雨らしさを出し、明るい青紫で爽やかに仕上げました。右側の余白にはてるてる坊主を置き、顔を吹き出しに見立てて「梅雨でも安心！」を目立たせました。',
+        } },
       { group: '6月 入居応援キャンペーン', src: 'images/design/campaign-jun.jpg',      size: '740×370' },
-      { group: '7月 夏の快適ステイ応援キャンペーン', src: 'images/design/campaign-jul-wide.jpg', size: '1140×270' , note: 'プールの水面と浮き輪の「80%」で、ひと目で夏とわかるデザインにしました。エアコンのイラストと「すぐ快適！」の言葉で、暑い時期の引っ越しの不安をやわらげています。' },
+      { group: '7月 夏の快適ステイ応援キャンペーン', src: 'images/design/campaign-jul-wide.jpg', size: '1140×270' ,
+        info: {
+          time: '2日',
+          point: 'プールの水面と浮き輪の「80%」で、ひと目で夏とわかるデザインにしました。エアコンのイラストと「すぐ快適！」の言葉で、暑い時期の引っ越しの不安をやわらげています。',
+        } },
       { group: '7月 夏の快適ステイ応援キャンペーン', src: 'images/design/campaign-jul.jpg',      size: '740×370' },
-      { group: '8月 花火のようにドーン！とお得な応援キャンペーン', src: 'images/design/campaign-aug-wide.jpg', size: '1140×270' , note: '夜空の花火と提灯で夏祭りの雰囲気を出し、「ドーン！」の文字に勢いを持たせました。暗い背景に黄色と赤の文字を重ね、夜でもお得さが目に飛び込むようにしています。' },
+      { group: '8月 花火のようにドーン！とお得な応援キャンペーン', src: 'images/design/campaign-aug-wide.jpg', size: '1140×270' ,
+        info: {
+          time: '1日',
+          point: '夜空の花火と提灯で夏祭りのにぎわいを表現し、「ドーン！」の文字を大きく斜めに配置して、花火が打ち上がる勢いを出しました。早割や短期割などの特典は提灯に載せ、祭りの雰囲気を保ちながら、視線が右側の「最大80％OFF」へ自然に流れるよう工夫しました。',
+        } },
       { group: '8月 花火のようにドーン！とお得な応援キャンペーン', src: 'images/design/campaign-aug.jpg',      size: '740×370' },
-      { group: '9月 秋のお月見キャンペーン', src: 'images/design/campaign-sep-wide.jpg', size: '1140×270' , note: '大きな満月を「80%OFF」の背景に使い、月見の景色と割引の数字をひとつにまとめました。うさぎと餅つきのキャラクターで、親しみやすさを加えています。' },
+      { group: '9月 秋のお月見キャンペーン', src: 'images/design/campaign-sep-wide.jpg', size: '1140×270' ,
+        info: {
+          time: '1日',
+          point: '夜空に大きな満月を配置し、月の中に「80％OFF」を載せることで、お月見の雰囲気と割引の大きさがひと目で伝わるようにしました。足元にはすすきやうさぎを添え、企業キャラに餅つきをさせることで、親しみやすいお月見の風景に仕上げました。',
+        } },
       { group: '9月 秋のお月見キャンペーン', src: 'images/design/campaign-sep.jpg',      size: '740×370' },
-      { group: '10月 秋の大感謝キャンペーン', src: 'images/design/campaign-oct-wide.jpg', size: '1140×270' , note: '紅葉と夕焼けで秋の深まりを表現し、筆文字風のタイトルで「感謝」の気持ちを伝わりやすくしました。紅葉の葉の中に「早割」「短期割」を入れ、割引の種類も一目でわかるようにしています。' },
+      { group: '10月 秋の大感謝キャンペーン', src: 'images/design/campaign-oct-wide.jpg', size: '1140×270' ,
+        info: {
+          time: '1日',
+          point: '紅葉と夕焼けで秋の深まりを表現し、筆文字風のタイトルで「感謝」の気持ちを伝わりやすくしました。紅葉の葉の中に「早割」「短期割」を入れ、割引の種類も一目でわかるようにしています。',
+        } },
       { group: '10月 秋の大感謝キャンペーン', src: 'images/design/campaign-oct.jpg',      size: '740×370' },
-      { group: '11月 勤労感謝キャンペーン', src: 'images/design/campaign-nov-wide.jpg', size: '1140×270' , note: '働く人のイラストと赤白の放射線で、明るく元気な印象にしました。「頑張るあなたへ」「家具家電付き」の吹き出しで、新生活を始める社会人に向けたメッセージにしています。' },
+      { group: '11月 勤労感謝キャンペーン', src: 'images/design/campaign-nov-wide.jpg', size: '1140×270' ,
+        info: {
+          time: '1日',
+          point: '働く人のイラストと赤白の放射線で、明るく元気な印象にしました。「頑張るあなたへ」「家具家電付き」の吹き出しで、新生活を始める社会人に向けたメッセージにしています。',
+        } },
       { group: '11月 勤労感謝キャンペーン', src: 'images/design/campaign-nov.jpg',      size: '740×370' },
     ],
   },
@@ -215,7 +263,7 @@ const works = [
     galleryLayout: 'post',   // 縦長の投稿画像を3列で並べます
     // gallery … キャンペーンバナーと同じ書き方で、押すと開く一覧に並べる画像を書きます
     gallery: [
-      { group: '新入社員紹介（コーポレート部）', src: 'images/design/snspost-intro01-1.jpg', note: 'Instagram向けの社員紹介シリーズです。1枚目は会社のオレンジを使った雑誌の表紙風のデザインで、紫陽花の写真と手書き風の文字で人柄が伝わるようにしました。2・3枚目はノート風のデザインにして、プロフィールやインタビューを親しみやすく読めるようにしています。' },
+      { group: '新入社員紹介（コーポレート部）', src: 'images/design/snspost-intro01-1.jpg', note: 'Instagram向けの社員紹介シリーズです。表紙は「ジャポニカ学習帳」をイメージし、会社カラーのオレンジをメインに、紫陽花の写真と手書き風の文字を組み合わせました。2・3枚目はリングノート風にそろえ、ページをめくるような感覚でプロフィールやインタビューを読み進めながら、社員の人柄を知ってもらえるように工夫しました。' },
       { group: '新入社員紹介（コーポレート部）', src: 'images/design/snspost-intro01-2.jpg' },
       { group: '新入社員紹介（コーポレート部）', src: 'images/design/snspost-intro01-3.jpg' },
       { group: '社内大喜利大会（福利厚生）', src: 'images/design/snspost-ogiri-1.jpg', note: '社内イベントを紹介するInstagram投稿です。1枚目は赤と黄色の放射線に社員の笑顔を大きく配置し、「大喜利」の文字を一番目立たせて、思わずスワイプしたくなる表紙にしました。2枚目以降はお題・回答・キャラクターのツッコミを毎回同じ配置にして、続けて読みやすいシリーズにしています。' },
@@ -230,7 +278,7 @@ const works = [
     title: 'その他の作品',
     category: 'other',
     description: 'LINEスタンプ・リッチメニュー・ぬいぐるみ制作',
-    image: 'images/other/other-thumb.jpg',
+    image: 'images/other/other-thumb.jpg?v=4',
     url: '',
     galleryLayout: 'feature',   // 1枚ずつ、画像と説明を横に並べて見せます
     gallery: [
@@ -484,7 +532,12 @@ function render(filter='all'){
     }
     const meta=document.createElement('div');meta.className='work-meta';
     const left=document.createElement('div');const heading=document.createElement('h3');heading.textContent=w.title;const detail=document.createElement('p');detail.textContent=w.description;left.append(heading,detail);
-    meta.append(left);card.append(visual,meta);grid.append(card);   // 右側の小さなカテゴリー名は表示しません
+    if(isAll){
+      // 「すべて」の一覧：作品名の代わりに「〇〇をすべて見る →」のボタンを表示します
+      const go=document.createElement('a');go.className='work-go';go.href='#works-'+w.category;go.textContent=catLabel(w.category)+'をすべて見る →';
+      meta.append(go);card.classList.add('is-jump');   // 写真からボタンまで、カード全体を押せるようにします
+    } else meta.append(left);
+    card.append(visual,meta);grid.append(card);   // 右側の小さなカテゴリー名は表示しません
   });
 }
 // TikTokプレーヤーの準備ができたら、サムネイルから開いた動画だけ再生します（ブラウザの設定で止められた場合は再生ボタンが表示されます）
@@ -519,6 +572,12 @@ function openGallery(w,from){
   galleryBox.querySelector('.gallery-eyebrow').textContent=w.category==='other'?'OTHER':'DESIGN';
   galleryBox.querySelector('.gallery-title').textContent=w.title;
   const body=galleryBox.querySelector('.gallery-body');body.replaceChildren();
+  if(w.summary){
+    const box=document.createElement('div');box.className='video-spec gallery-spec gallery-summary';
+    const it=document.createElement('div');it.className='video-spec-item';
+    const h=document.createElement('h5');h.textContent='制作概要';const tx=document.createElement('p');tx.textContent=w.summary;
+    it.append(h,tx);box.append(it);body.append(box);
+  }
   const groups=[];w.gallery.forEach(g=>{let grp=groups.find(x=>x.name===(g.group||''));if(!grp){grp={name:g.group||'',items:[]};groups.push(grp)}grp.items.push(g)});
   groups.forEach(grp=>{
     const sec=document.createElement('section');sec.className='gallery-group';
@@ -531,7 +590,25 @@ function openGallery(w,from){
       list.append(fig);
     });
     sec.append(list);
-    const note=(grp.items.find(g=>g.note)||{}).note;
+    // スマホのSNS投稿：横にスワイプして画像を切り替えます。今何枚目かを点で表示します
+    if(w.galleryLayout==='post'&&grp.items.length>1){
+      const dots=document.createElement('div');dots.className='gallery-dots';dots.setAttribute('aria-hidden','true');
+      grp.items.forEach((_,i)=>{const d=document.createElement('span');if(i===0)d.className='is-active';dots.append(d)});
+      list.addEventListener('scroll',()=>{const i=Math.round(list.scrollLeft/(list.scrollWidth/grp.items.length));[...dots.children].forEach((d,k)=>d.classList.toggle('is-active',k===i))},{passive:true});
+      sec.append(dots);
+    }
+    const info=(grp.items.find(g=>g.info)||{}).info;
+    if(info){
+      const box=document.createElement('div');box.className='video-spec gallery-spec';
+      [['time','制作時間'],['point','工夫した点']].forEach(([k,label])=>{
+        if(!info[k])return;
+        const it=document.createElement('div');it.className='video-spec-item';
+        const h=document.createElement('h5');h.textContent=label;const tx=document.createElement('p');tx.textContent=info[k];
+        it.append(h,tx);box.append(it);
+      });
+      sec.append(box);
+    }
+    const note=info?'':(grp.items.find(g=>g.note)||{}).note;
     if(note){const pnote=document.createElement('p');pnote.className='gallery-note';pnote.textContent=note;sec.append(pnote)}
     body.append(sec);
   });
@@ -555,7 +632,17 @@ function openVideo(w,from,makeFrame){
   cover.addEventListener('click',start);
   body.append(wrap);start();
   const text=w.note||w.description;
-  if(text){const box=document.createElement('div');box.className='video-info';
+  if(w.info){
+    const box=document.createElement('div');box.className='video-info video-spec';
+    [['reason','制作理由'],['role','担当'],['time','制作時間'],['point','工夫箇所']].forEach(([k,label])=>{
+      if(!w.info[k])return;
+      const sec=document.createElement('div');sec.className='video-spec-item';
+      const h=document.createElement('h4');h.textContent=label;const p=document.createElement('p');p.textContent=w.info[k];
+      sec.append(h,p);box.append(sec);
+    });
+    body.append(box);
+  }
+  else if(text){const box=document.createElement('div');box.className='video-info';
     const p=document.createElement('p');p.className='gallery-note';p.textContent=text;box.append(p);body.append(box)}
 }
 function closeGallery(){
