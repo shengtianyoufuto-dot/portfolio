@@ -9,13 +9,13 @@
 const categories = {
   all:      { label: 'すべて',       text: 'これまでに制作した作品の一覧です。' },
   sns:      { label: 'SNSショート',       text: 'Instagram・TikTokなど、SNS向けのショート動画。企画から撮影・編集まで担当しています。',
-              cover: 'images/category/sns.jpg?v=3' },
+              cover: 'images/category/sns.jpg?v=9' },
   roomtour: { label: 'ルームツアー', text: '物件の魅力が伝わるルームツアー動画。撮影・編集・テロップ制作を担当しています。',
-              cover: 'images/category/roomtour.jpg?v=4' },
+              cover: 'images/category/roomtour.jpg?v=10' },
   design:   { label: 'デザイン',    text: 'バナーやサムネイルなど、SNS・Web向けのグラフィックデザインです。',
-              cover: 'images/category/design.jpg' },   // 「すべて」の一覧用（背景文字あり）
+              cover: 'images/category/design.jpg?v=7' },   // 「すべて」の一覧用（背景文字あり）
   other:    { label: 'その他',     text: 'その他の制作物です。',
-              cover: 'images/category/other.jpg' },   // 「すべて」の一覧用（背景文字あり）
+              cover: 'images/category/other.jpg?v=7' },   // 「すべて」の一覧用（背景文字あり）
 };
 
 // ============================================================
@@ -202,7 +202,7 @@ const works = [
     title: 'キャンペーンバナー',
     category: 'design',
     description: 'グラフィックデザイン',
-    image: 'images/design/campaign-thumb.jpg?v=4',
+    image: 'images/design/campaign-thumb.jpg?v=7',
     url: '',
     // summary … 一覧の上に表示する、キャンペーンバナー全体の制作概要
     summary: '毎月のキャンペーンを周知し、マンスリーマンションを探している方に、割引内容や開催期間をひと目で伝えるために制作しました。',
@@ -258,7 +258,7 @@ const works = [
     title: 'SNS投稿',
     category: 'design',
     description: 'SNS投稿画像のデザイン',
-    image: 'images/design/snspost-thumb.jpg',
+    image: 'images/design/snspost-thumb.jpg?v=4',
     url: '',
     galleryLayout: 'post',   // 縦長の投稿画像を3列で並べます
     // gallery … キャンペーンバナーと同じ書き方で、押すと開く一覧に並べる画像を書きます
@@ -278,7 +278,7 @@ const works = [
     title: 'その他の作品',
     category: 'other',
     description: 'LINEスタンプ・リッチメニュー・ぬいぐるみ制作',
-    image: 'images/other/other-thumb.jpg?v=4',
+    image: 'images/other/other-thumb.jpg?v=7',
     url: '',
     galleryLayout: 'feature',   // 1枚ずつ、画像と説明を横に並べて見せます
     gallery: [

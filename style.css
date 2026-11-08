@@ -254,3 +254,5 @@ a.sns-link:hover .sns-link-arrow{background:#d3dfcc}
   .gallery-dots span{width:8px;height:8px;border-radius:50%;background:#cfd6cc;transition:background .2s,transform .2s}
   .gallery-dots span.is-active{background:#243B53;transform:scale(1.15)}
 }
+/* 「すべて」の一覧：サムネイル下の白い文字が沈まないよう、下の影を弱めます */
+.work-jump::before{background:linear-gradient(transparent 75%,rgba(0,0,0,.06))}
