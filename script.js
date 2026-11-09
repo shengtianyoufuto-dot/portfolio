@@ -343,6 +343,9 @@ function tiktokThumb(w){
 // ============================================================
 const heroSpeed = 28;
 const heroColumns = 2;
+const heroColumnsMobile = 4;   // スマホのときの列の数
+// スマホの各列で流す順番（heroVideos の番号。左の列から順に書きます）
+const heroLaneOrder = [[1,2,7,4],[2,3,4,5],[7,4,1,3],[4,8,2,6]];
 // ファーストビューで流す動画（videos フォルダに入れて、ここに並べます）
 //   src … 動画ファイル（音声なし・軽量化したmp4がおすすめ）
 //   poster … 読み込み前や「動きを減らす」設定のときに表示する静止画
@@ -352,13 +355,23 @@ const heroVideos = [
   { src: 'videos/hero-01.mp4?v=2', poster: 'videos/hero-01.jpg?v=2' },
   { src: 'videos/hero-02.mp4', poster: 'videos/hero-02.jpg' },
   { src: 'videos/hero-03.mp4', poster: 'videos/hero-03.jpg' },
-  { src: 'videos/hero-04.mp4', poster: 'videos/hero-04.jpg' },
+  // image / imageLanes … スマホで、指定した列（左から1, 2, 3, 4）だけ動画の代わりに画像を流します
+  { src: 'videos/hero-04.mp4', poster: 'videos/hero-04.jpg', image: 'videos/hero-04-photo.jpg', imageLanes: [2] },
+  { src: 'videos/hero-05.mp4', poster: 'videos/hero-05.jpg', mobileOnly: true },   // 5番目（スマホの列の順番 heroLaneOrder でだけ使います）
+  { image: 'videos/hero-06-photo.jpg', mobileOnly: true },   // 6番目：画像だけ（スマホの heroLaneOrder でだけ使います）
+  { src: 'videos/hero-07.mp4', poster: 'videos/hero-07.jpg', mobileOnly: true },   // 7番目（スマホの heroLaneOrder でだけ使います）
+  { image: 'videos/hero-08-photo.jpg', mobileOnly: true },   // 8番目：画像だけ（BraTTo食堂 シャッフルランチ）
 ];
 let heroVideoObserver;
 function buildHeroMarquee(){
   const box=document.querySelector('.hero-marquee');
   if(!box||!works.length)return;
   const makeTile=w=>{
+    if(w._video&&w.image&&w._usePhoto){
+      // 画像のタイル（動画の代わりに静止画を流します）
+      const tile=document.createElement('div');tile.className='marquee-tile is-photo';
+      const img=document.createElement('img');img.src=w.image;img.alt='';img.decoding='async';tile.append(img);return tile;
+    }
     if(w._video){
       // 動画のタイル（音声なし・ループ再生。画面に見えているものだけ再生します）
       const tile=document.createElement('div');tile.className='marquee-tile is-video';
@@ -384,9 +397,11 @@ function buildHeroMarquee(){
   box.replaceChildren(stage);
   const pairs=[];
   const source=heroVideos.length?heroVideos.map(v=>Object.assign({_video:true},v)):works;
-  for(let c=0;c<heroColumns;c++){
+  const cols=window.matchMedia('(max-width:700px)').matches?heroColumnsMobile:heroColumns;
+  for(let c=0;c<cols;c++){
     // 列ごとに作品をずらして並べ、隣の列と同じ作品が並ばないようにします
-    const list=source.filter((w,i)=>i%heroColumns===c);
+    // スマホ（4列）：どの列にも動画を全部入れ、列ごとに最初の動画をずらします
+    const list=cols===heroColumnsMobile?(heroLaneOrder[c]||[]).map(n=>source[n-1]).filter(Boolean):source.filter(w=>!w.mobileOnly).filter((w,i)=>i%cols===c);
     const items=list.length?list:source;
     const col=document.createElement('div');col.className='marquee-col';
     const track=document.createElement('div');track.className='marquee-track';
@@ -395,7 +410,7 @@ function buildHeroMarquee(){
     // 1グループが表示範囲より長くなるまで作品を繰り返します
     const tiles=[];
     for(let n=0;n<30&&(n===0||group.getBoundingClientRect().height<stage.offsetHeight);n++){
-      items.forEach(w=>{const t=makeTile(w);t._work=w;tiles.push(t);group.append(t)});
+      items.forEach(w=>{const usePhoto=!!(w.image&&(!w.src||cols===heroColumnsMobile&&(w.imageLanes||[]).includes(c+1)));const t=makeTile(usePhoto?Object.assign({},w,{_usePhoto:true}):w);t._work=w;tiles.push(t);group.append(t)});
     }
     // 同じグループをもう1つ並べ、半分進んだところで最初に戻すと継ぎ目なくループします
     const clone=group.cloneNode(true);track.append(clone);

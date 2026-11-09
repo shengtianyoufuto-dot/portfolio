@@ -256,3 +256,17 @@ a.sns-link:hover .sns-link-arrow{background:#d3dfcc}
 }
 /* 「すべて」の一覧：サムネイル下の白い文字が沈まないよう、下の影を弱めます */
 .work-jump::before{background:linear-gradient(transparent 75%,rgba(0,0,0,.06))}
+/* スマホ：流れる動画を4列に（左端の列は少しだけ見せる） */
+@media(max-width:700px){
+  .hero-marquee{--col-w:38vw;--tile-gap:12px}
+  .marquee-stage{left:-40%;height:220%}
+  .marquee-col:nth-child(4){margin-top:calc(var(--col-w) * -.35)}
+}
+/* スマホ：キャッチコピーを囲む白い四角をなくします（文字が動画に埋もれないよう、文字のまわりに白いふちをうっすら付けます） */
+@media(max-width:700px){
+  .hero-copy{background:none;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .hero-copy{position:relative;isolation:isolate}
+  .hero-copy::before{content:'';position:absolute;inset:-110px -110px;z-index:-1;background:radial-gradient(closest-side,rgba(255,255,255,.96),rgba(255,255,255,.9) 62%,rgba(255,255,255,0));pointer-events:none}
+  .hero-copy .eyebrow,.hero-copy h1,.hero-copy .hero-lead{text-shadow:0 0 10px rgba(255,255,255,.9)}
+}
+.marquee-tile.is-photo{aspect-ratio:4/5;background:#e85d00}
