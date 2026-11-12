@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="動画制作・デザインのポートフォリオ">
   <title>Portfolio | Creative Works</title>
-  <link rel="stylesheet" href="style.css?v=20261109q">
+  <link rel="stylesheet" href="style.css?v=20261112x">
 </head>
 <body>
   <header class="header wrap">
@@ -15,7 +15,7 @@
   <main id="top">
     <section class="hero" aria-labelledby="heroTitle">
       <div class="hero-copy wrap">
-        <span class="eyebrow">SNS VIDEO / GRAPHIC DESIGN</span>
+        <span class="eyebrow eyebrow-wave">SNS VIDEO / GRAPHIC DESIGN</span>
         <h1 id="heroTitle">見る人の目線で、<br><em><span class="mark">ひと工夫</span>。</em></h1>
         <p class="hero-lead">SNS動画の企画・撮影・編集から、<br>バナー制作まで。</p>
         <p class="hero-badge"><svg class="hero-badge-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1v22M1 12h22M4.2 4.2l15.6 15.6M19.8 4.2L4.2 19.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 6.5l1.4 4.1 4.1 1.4-4.1 1.4-1.4 4.1-1.4-4.1-4.1-1.4 4.1-1.4z" fill="currentColor"/></svg><span>Hinata’s Portfolio</span><svg class="hero-badge-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1v22M1 12h22M4.2 4.2l15.6 15.6M19.8 4.2L4.2 19.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 6.5l1.4 4.1 4.1 1.4-4.1 1.4-1.4 4.1-1.4-4.1-4.1-1.4 4.1-1.4z" fill="currentColor"/></svg></p>
@@ -26,16 +26,103 @@
       <div class="hero-number wrap" aria-hidden="true">01 / CREATIVE PORTFOLIO</div>
     </section>
     <section class="works-section" id="works"><div class="wrap">
-      <div class="section-heading"><div><span class="eyebrow">SELECTED PROJECTS</span><h2 class="ja-title">制作実績<span class="brand-dot">.</span></h2></div></div>
+      <div class="section-heading"><div><span class="eyebrow eyebrow-wave">SELECTED PROJECTS</span><h2 class="ja-title">制作実績<span class="brand-dot">.</span></h2></div></div>
       <div class="filters" id="filters" role="group" aria-label="作品カテゴリ"></div>
       <p class="filter-text" id="filterText" aria-live="polite"></p>
       <div class="work-grid" id="workGrid"></div>
       <div class="sns-links" id="snsLinks" hidden></div>
       <p class="work-note"></p>
     </div></section>
-    <section id="about" class="about-section wrap"><div><span class="eyebrow">WHO I AM</span><h2 class="ja-title">プロフィール<span class="brand-dot">.</span></h2></div><div class="about-copy"><h3>企画から完成まで、<br>一貫して向き合う。</h3><p>SNS向けショート動画の企画・撮影・編集を中心に、バナーやサムネイルなどのデザイン制作にも取り組んでいます。伝えたい内容と、見る人の興味が重なる表現を目指しています。</p><p class="skills">Video Editing / SNS Content / Illustrator / Photoshop / Canva / CapCut</p></div></section>
+    <section id="about" class="profile-section">
+      <div class="wrap">
+        <div class="profile-heading"><span class="eyebrow eyebrow-wave">WHO I AM</span><h2 class="ja-title">プロフィール<span class="brand-dot">.</span></h2></div>
+        <div class="profile-carousel reveal">
+        <div class="profile-list" id="profileList" tabindex="0" aria-label="プロフィール（横にスワイプして切り替え）">
+          <!-- 01 プロフィール：写真は images/profile/ に入れて、下の profile-photo の中を <img src="images/profile/○○.jpg" alt="自分の写真"> に書き換えます -->
+          <article class="profile-block">
+            <div class="profile-media"><span class="profile-num" aria-hidden="true">01</span><div class="profile-photo"><img src="images/profile/profile-01.jpg" alt="自分の写真"></div></div>
+            <div class="profile-body">
+              <p class="profile-label eyebrow-wave">PROFILE</p>
+              <h3 class="profile-title">プロフィール</h3>
+              <dl class="profile-dl">
+                <div><dt>名前</dt><dd><span>生田 陽太</span></dd></div>
+                <div><dt>経歴</dt><dd><span>沖縄の動物園で約3年半の間、飼育員として勤務しました。<br>退職後は職業訓練校でデザイン制作を学び、現在は大阪の不動産会社で企業SNSのコンテンツ制作を担当しています。</span></dd></div>
+                <div><dt>担当業務</dt><dd><span>Instagram・TikTok・YouTube向けの採用・広報動画を、企画から撮影、編集まで担当。動画のサムネイルやSNS投稿画像、バナーの制作も行っています。</span></dd></div>
+                <div><dt>メッセージ</dt><dd><span>冒頭の見せ方や編集のテンポを工夫し、企業や働く人の魅力が伝わる動画を作っています。AIも活用し、制作の効率と視聴者からの反響の両立を目指しています。</span></dd></div>
+              </dl>
+            </div>
+          </article>
+          <!-- 02 ホビー -->
+          <article class="profile-block is-hobby">
+            <div class="profile-media"><span class="profile-num" aria-hidden="true">02</span><div class="profile-photo"><img src="images/profile/profile-02.jpg" alt="趣味の釣りの写真"></div><img class="hobby-sticker hobby-guinea" src="images/profile/hobby-guinea.png" alt="" aria-hidden="true"></div>
+            <img class="hobby-sticker hobby-elephant" src="images/profile/hobby-elephant.png" alt="" aria-hidden="true">
+            <div class="profile-body">
+              <p class="profile-label eyebrow-wave">LIFESTYLE</p>
+              <h3 class="profile-title">趣味と暮らし</h3>
+              <dl class="profile-dl">
+                <div><dt>ペット</dt><dd><span>モルモットの金ちゃんと暮らしています。<br>おでこのつむじがチャームポイントで、背中をなでてもらうのが好きなようです。</span></dd></div>
+                <div><dt>趣味</dt><dd><span>釣りが好きです。仕掛けを工夫して魚が釣れた瞬間がたまりません。<br>お酒を片手に、釣った魚でいろいろな料理に挑戦しています。最近はしめ鯖となめろうを作りました。</span></dd></div>
+                <div><dt>休日の過ごし方</dt><dd><span>海へ釣りに出かけたり、家でのんびり動画を編集したりしています。</span></dd></div>
+              </dl>
+            </div>
+          </article>
+          <!-- 03 スキル -->
+          <article class="profile-block">
+            <div class="profile-media"><span class="profile-num" aria-hidden="true">03</span><div class="profile-photo"><img src="images/profile/profile-03.jpg" alt="動画編集をしているノートパソコン"></div></div>
+            <div class="profile-body">
+              <p class="profile-label eyebrow-wave">SKILL</p>
+              <h3 class="profile-title">スキル</h3>
+              <ul class="profile-strengths">
+                <li><strong>AIを活用したコンテンツ制作</strong><span>新しいAIツールや使い方を積極的に試し、企画や編集に取り入れています。制作を効率化しながら、視聴者の反響につながるコンテンツづくりを目指しています。</span></li>
+                <li><strong>アイデアを企画にする</strong><span>一つのテーマを別の角度から捉え、アイデアを出すのが得意です。採用や社員紹介では、会社の魅力が楽しく伝わる企画に落とし込んでいます。</span></li>
+                <li><strong>ショート動画の編集</strong><span>冒頭の数秒で興味を引き、テロップの読みやすさやカットのテンポを意識して編集します。</span></li>
+              </ul>
+              <p class="profile-subhead">使えるツール</p>
+              <ul class="profile-tools" aria-label="使用ツール">
+                <li>CapCut</li><li>Premiere Pro</li><li>Illustrator</li><li>Photoshop</li><li>Canva</li>
+              </ul>
+              <p class="profile-subhead">生成AI</p>
+              <ul class="profile-tools is-ai" aria-label="使用している生成AI">
+                <li>ChatGPT</li><li>Claude</li><li>Genspark</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <div class="profile-nav">
+          <button type="button" class="profile-arrow" data-dir="-1" aria-label="前のカード">←</button>
+          <div class="profile-dots" id="profileDots" aria-hidden="true"></div>
+          <button type="button" class="profile-arrow" data-dir="1" aria-label="次のカード">→</button>
+        </div>
+        </div>
+      </div>
+    </section>
+    <!-- 使えるツールのロゴを横に流す（ロゴは images/tools/ ） -->
+    <section class="tool-marquee" aria-label="使用ツール">
+      <div class="tool-marquee-track">
+        <ul class="tool-marquee-list">
+          <li><img src="images/tools/chatgpt.png" alt="ChatGPT" width="80" height="80" loading="lazy"><span>ChatGPT</span></li>
+          <li><img src="images/tools/canva.png" alt="Canva" width="80" height="80" loading="lazy"><span>Canva</span></li>
+          <li><img src="images/tools/photoshop.png" alt="Photoshop" width="80" height="80" loading="lazy"><span>Photoshop</span></li>
+          <li><img src="images/tools/illustrator.png" alt="Illustrator" width="80" height="80" loading="lazy"><span>Illustrator</span></li>
+          <li><img src="images/tools/premiere-pro.png" alt="Premiere Pro" width="80" height="80" loading="lazy"><span>Premiere Pro</span></li>
+          <li><img src="images/tools/capcut.png" alt="CapCut" width="80" height="80" loading="lazy"><span>CapCut</span></li>
+          <li><img src="images/tools/genspark.png" alt="Genspark" width="80" height="80" loading="lazy"><span>Genspark</span></li>
+          <li><img src="images/tools/claude.png" alt="Claude" width="80" height="80" loading="lazy"><span>Claude</span></li>
+        </ul>
+        <ul class="tool-marquee-list" aria-hidden="true">
+          <li aria-hidden="true"><img src="images/tools/chatgpt.png" alt="" width="80" height="80" loading="lazy"><span>ChatGPT</span></li>
+          <li aria-hidden="true"><img src="images/tools/canva.png" alt="" width="80" height="80" loading="lazy"><span>Canva</span></li>
+          <li aria-hidden="true"><img src="images/tools/photoshop.png" alt="" width="80" height="80" loading="lazy"><span>Photoshop</span></li>
+          <li aria-hidden="true"><img src="images/tools/illustrator.png" alt="" width="80" height="80" loading="lazy"><span>Illustrator</span></li>
+          <li aria-hidden="true"><img src="images/tools/premiere-pro.png" alt="" width="80" height="80" loading="lazy"><span>Premiere Pro</span></li>
+          <li aria-hidden="true"><img src="images/tools/capcut.png" alt="" width="80" height="80" loading="lazy"><span>CapCut</span></li>
+          <li aria-hidden="true"><img src="images/tools/genspark.png" alt="" width="80" height="80" loading="lazy"><span>Genspark</span></li>
+          <li aria-hidden="true"><img src="images/tools/claude.png" alt="" width="80" height="80" loading="lazy"><span>Claude</span></li>
+        </ul>
+      </div>
+    </section>
   </main>
   <footer class="wrap footer"><span>© <span id="year"></span> MY PORTFOLIO</span><a href="#top">BACK TO TOP ↑</a></footer>
-  <script src="script.js?v=20261109o"></script>
+  <script src="script.js?v=20261112g"></script>
 </body>
 </html>

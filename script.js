@@ -707,3 +707,44 @@ document.getElementById('year').textContent=new Date().getFullYear();
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
   let t;window.addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(fit,150)});
 })();
+
+// プロフィール：スクロールして画面に入ったら、1ブロックずつふわっと表示します（「動きを減らす」設定では最初から表示）
+(function(){
+  const items=document.querySelectorAll('.reveal');
+  if(!items.length)return;
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){items.forEach(el=>el.classList.add('is-visible'));return}
+  document.documentElement.classList.add('js-reveal');
+  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px',threshold:.15});
+  items.forEach(el=>io.observe(el));
+})();
+
+// プロフィールのカード：横にスワイプ（PCは矢印ボタン）で次のカードへ。下の点で今何枚目かを表示します
+(function(){
+  const list=document.getElementById('profileList');if(!list)return;
+  const cards=[...list.querySelectorAll('.profile-block')];
+  const dotsBox=document.getElementById('profileDots');
+  const dots=cards.map((_,i)=>{const d=document.createElement('button');d.type='button';d.setAttribute('aria-label',(i+1)+'枚目へ');d.addEventListener('click',()=>go(i));dotsBox.append(d);return d});
+  const arrows=[...document.querySelectorAll('.profile-arrow')];
+  const current=()=>{const c=list.scrollLeft+list.clientWidth/2;let best=0,dist=1e9;cards.forEach((el,i)=>{const m=el.offsetLeft+el.offsetWidth/2;const d=Math.abs(m-c);if(d<dist){dist=d;best=i}});return best};
+  const go=i=>{i=Math.max(0,Math.min(cards.length-1,i));const el=cards[i];list.scrollTo({left:el.offsetLeft-(list.clientWidth-el.offsetWidth)/2,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})};
+  const update=()=>{const i=current();dots.forEach((d,k)=>d.classList.toggle('is-active',k===i));cards.forEach((c,k)=>c.classList.toggle('is-current',k===i));arrows[0].disabled=i===0;arrows[1].disabled=i===cards.length-1};
+  arrows.forEach(b=>b.addEventListener('click',()=>go(current()+Number(b.dataset.dir))));
+  list.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(current()+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(current()-1)}});
+  let t;list.addEventListener('scroll',()=>{cancelAnimationFrame(t);t=requestAnimationFrame(update)},{passive:true});
+  window.addEventListener('resize',update);update();
+})();
+
+/* 「SELECTED PROJECTS」の文字を1文字ずつ、波のようにゆっくり動かす */
+document.querySelectorAll('.eyebrow-wave').forEach(function(el){
+  var text = el.textContent;
+  el.setAttribute('aria-label', text);
+  el.textContent = '';
+  Array.prototype.forEach.call(text, function(ch, i){
+    var s = document.createElement('span');
+    s.className = 'wave-char';
+    s.setAttribute('aria-hidden', 'true');
+    s.textContent = ch === ' ' ? ' ' : ch;
+    s.style.animationDelay = (i * 0.08) + 's';
+    el.appendChild(s);
+  });
+});
